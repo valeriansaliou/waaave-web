@@ -1,0 +1,77 @@
+// Bundle: Bootstrap (vendor)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+
+
+
+// Bootstrap >> Variables
+
+$black: #454545
+$grey: #606060
+$blue: #1f5691
+$turquoise: #46a7df
+$green: #aac55a
+$yellow: #ffd022
+$orange: #e49424
+$red: #c34c47
+$borderColor: #dddddd
+
+$avatarSmallSize: 40px
+$avatarNormalSize: 55px
+$avatarLargeSize: 70px
+
+$bootstrapItems: sprite-map("vendor/bootstrap/images/bootstrap_items/*.png")
+$rankDefaultImages: sprite-map("vendor/bootstrap/images/bootstrap_rank_default/*.png")
+$rankSmallImages: sprite-map("vendor/bootstrap/images/bootstrap_rank_small/*.png")
+$rankLargeImages: sprite-map("vendor/bootstrap/images/bootstrap_rank_large/*.png")
+
+
+
+// Bootstrap >> Mixins
+
+@mixin sprite-background($sprite, $name)
+    display: inline-block
+    background-image: sprite-url($sprite)
+    background-position: sprite-position($sprite, $name)
+    background-repeat: no-repeat
+    height: image-height(sprite-file($sprite, $name))
+    width: image-width(sprite-file($sprite, $name))
+
+
+@mixin text-selection
+    ::selection
+        @content
+
+    ::-moz-selection
+        @content
+
+
+@mixin no-highlighting()
+    -webkit-touch-callout: none
+    -webkit-user-select: none
+    -khtml-user-select: none
+    -moz-user-select: moz-none
+    -ms-user-select: none
+    user-select: none
+
+
+@mixin input-placeholder
+    &.placeholder
+        @content
+
+    &:-moz-placeholder
+        @content
+
+    &::-moz-placeholder
+        @content
+
+    &:-ms-input-placeholder
+        @content
+
+    &::-webkit-input-placeholder
+        @content

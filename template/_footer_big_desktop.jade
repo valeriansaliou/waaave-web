@@ -1,0 +1,27 @@
+.footer-desktop.footer-desktop-big.hide-on-mobile
+  .grid
+    .g-c3
+      span.engraved-waaave
+
+    .g-c6
+      nav.navigation
+        a(href='{% url "company.views.about" %}')
+          | About Us
+        a(href='{% url "company.views.terms" %}')
+          | Terms
+        a(href='{% url "company.views.privacy" %}')
+          | Privacy
+        a(href='{% url "company.views.contact" %}')
+          | Contact
+
+        if user.is_authenticated
+          a(href='{% url "feedback.views.root" %}')
+            | Feedback
+
+    .g-c3
+      span.copyright
+        | © 2014
+        a(href='https://hakuma.holdings/')
+          |  Hakuma Holdings Ltd.
+
+    .clear

@@ -1,0 +1,9 @@
+{% autoescape off %}{% if snippet %}{{ snippet.text }}{% endif %}
+{% for group in groups %}
+/* {{ group|upper }} */
+{% for human in group.humans %}
+{{ human }}{% if human.role %}, {{ human.role }}{% endif %}
+{{ human.render_handles }}{% if human.location %}Location: {{ human.location }}{% endif %}
+{% endfor %}
+{% endfor %}
+{% endautoescape %}

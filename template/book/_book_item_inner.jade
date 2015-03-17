@@ -1,0 +1,91 @@
+- load bbcode humanize relevance_buttons join_btn
+
+.book
+  h3.title
+    a(href='{% url "book.views.view" book.url.author book.url.slug %}')
+      | {{ book.item.title }}
+  
+  .complement
+    | by 
+    
+    a(href='{% url "book.views.view" book.url.author book.url.slug %}')
+      | {{ book.item.author.person.first_name }} {{ book.item.author.person.last_name }}
+    
+    span.separator ·
+    span.views
+      | {{ book.views|intcomma }} view{{ book.views|pluralize }}
+    
+    span.separator ·
+    span.reviews
+      | {{ book.reviews|intcomma }} review{{ book.reviews|pluralize }}
+    
+    span.separator ·
+    span.percent
+      | {{ book.relevance.percent_relevant }}%
+  
+  if type == 'complete'
+    .tags
+      for book_tag in book.item.book_tags.all
+        {% join_btn_label book_tag.tag %}
+
+    include share/_share_buttons_small
+    
+    .details
+      | {{ book.item.description|bbcode }}
+  
+  else
+    .details
+      | {{ book.item.description|bbcode_as_text|truncatechars:380 }}
+      | 
+
+      a.read-more(href='{% url "book.views.view" book.url.author book.url.slug %}')
+        | (read more)
+
+  if book.amazon_url
+    .available
+      a(
+        href='{{ book.amazon_url }}',
+        target='_blank',
+        title='Buy {{ book.item.title }} on Amazon'
+      )
+        span.badge-book.badge-amazon
+      
+      span.text
+        span.semibold Available 
+        | on 
+        a(href='{{ book.amazon_url }}', target='_blank')
+          | Amazon.com
+      
+      .clear
+
+  if type == 'complete'
+    .meta
+      if book.item.pages
+        span.pages
+          span.icon
+          | {{ book.item.pages }} page{{ book.item.pages|pluralize }}
+
+      if book.item.language_name
+        span.language
+          span.icon
+          | {{ book.item.language_name }}
+
+      if book.item.publisher.house
+        span.publisher
+          | Published by 
+          a(href='{{ book.item.publisher.house.website }}') {{ book.item.publisher.house.name }}
+          
+          if book.item.date_release
+            |  on {{ book.item.date_release|date:"d M Y" }}
+      else
+        if book.item.date_release
+          span.publisher Published on {{ book.item.date_release|date:"d M Y" }}
+
+      .clear
+    
+    .extra
+      include share/_share_buttons_large
+      
+      | {% relevance_buttons item_type item_id %}
+      
+      .clear

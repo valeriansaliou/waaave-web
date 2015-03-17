@@ -1,0 +1,47 @@
+// Bundle: Company (assets)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+
+@import "controllers/configuration"
+@import "controllers/functions"
+@import "controllers/keyframes"
+
+
+
+// Company >> Terms & Policy
+
+.terms,
+.policy
+    p
+        margin-bottom: 20px
+        font-size: (13/16) * 1em
+
+    .updating-date
+        display: inline-block
+        margin-bottom: 10px
+        font-size: (12/16) * 1em
+
+    .bold
+        font-family: "OpenSans Bold"
+
+    h2
+        margin-top: 35px
+        margin-bottom: 25px
+        font-size: (16/16) * 1em
+        text-transform: uppercase
+
+    .item
+        margin-bottom: 15px
+
+
+/* For Tablet & Beyond */
+@media screen and (min-width: 767px)
+    .terms,
+    .policy
+        h2
+            font-size: (18/16) * 1em

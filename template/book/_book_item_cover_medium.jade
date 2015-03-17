@@ -1,0 +1,7 @@
+a.cover(
+    href='{% url "book.views.view" book.url.author book.url.slug %}',
+    title='{{ book.item.title }}'
+)
+  img.cover(src='{{ book.item.url_cover_medium }}')
+
+include book/_book_item_inner

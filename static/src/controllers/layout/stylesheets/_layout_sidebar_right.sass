@@ -1,0 +1,175 @@
+// Bundle: Layout (controllers)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+// Layout >> Right Sidebar >> Variables
+
+$bookBoth: sprite-map("assets/book/images/book_both/*.png")
+
+
+
+// Timeline >> Right Sidebar
+
+.sidebar-right
+    display: none
+
+
+/* For WideScreen & Beyond */
+@media screen and (min-width: 1200px)
+    .sidebar-right-c2
+        padding-left: 13px
+        padding-right: 0
+
+    .sidebar-right
+        display: block
+        +text-shadow(#ffffff 1px 1px 1px)
+
+        .heading
+            margin-top: 5px
+            margin-bottom: 10px
+            font-size: (12/16) * 1em
+            font-family: "OpenSans Semibold", sans-serif
+
+        .books
+            .items
+                .item
+                    margin-bottom: 15px
+
+                    &:last-of-type
+                        padding-bottom: 15px
+                        border-bottom: 1px dotted #d0d0d0
+
+                    .cover
+                        float: left
+                        +box-shadow(0 0 5px #e6e6e6)
+
+                        img
+                            float: left
+                            margin-left: 0
+                            max-width: 50px
+                            max-height: 70px
+
+                    .book
+                        padding-left: 65px
+                        line-height: 15px
+
+                        .title
+                            display: block
+                            margin-bottom: 3px
+                            font-size: 12px
+                            font-family: "OpenSans Semibold", sans-serif
+
+                        .author
+                            display: block
+                            margin-bottom: 8px
+                            color: $black
+                            font-size: (11/16) * 1em
+                            font-family: "OpenSans Semibold", sans-serif
+
+                        .more
+                            display: block
+                            color: #d74978
+                            font-size: (12/16) * 1em
+
+                        .badge-amazon
+                            +sprite-background($bookBoth, 'amazon-badge')
+
+        .popular-waaavers,
+        .popular-spots
+            .users,
+            .spots
+                .user-card,
+                .spot-card
+                    margin-bottom: 15px
+                    margin-left: 2px
+
+                    &:last-of-type
+                        padding-bottom: 15px
+                        border-bottom: 1px dotted #d0d0d0
+
+                    .avatar-wrapper
+                        float: left
+
+                    .user,
+                    .spot
+                        padding-left: 65px
+                        line-height: 15px
+
+                        .username,
+                        .name
+                            display: block
+                            margin-bottom: 2px
+                            font-size: (12/16) * 1em
+                            font-family: "OpenSans Semibold", sans-serif
+                            cursor: pointer
+
+                        .specialty,
+                        .description
+                            display: block
+                            margin-bottom: 8px
+                            color: $black
+                            font-size: (11/16) * 1em
+                            font-family: "OpenSans Semibold", sans-serif
+
+                            &:first-letter
+                                text-transform: uppercase
+
+        .suggestions
+            .items
+                .item
+                    margin-bottom: 15px
+                    margin-left: 2px
+
+                    &:last-of-type
+                        margin-bottom: 20px
+
+                    .avatar-wrapper
+                        float: left
+
+                    .tutorial
+                        padding-left: 65px
+                        line-height: 15px
+
+                        .title
+                            display: block
+                            margin-bottom: 3px
+                            font-size: (12/16) * 1em
+                            font-family: "OpenSans Semibold", sans-serif
+
+                        .author
+                            display: block
+                            margin-bottom: 3px
+                            color: $black
+                            font-size: (11/16) * 1em
+                            font-family: "OpenSans Semibold", sans-serif
+
+                        .details
+                            color: $grey
+                            font-size: (11/16) * 1em
+
+                            .separator
+                                display: inline-block
+                                margin: 0 6px
+                                color: $grey
+
+                            .percent
+                                color: $green
+
+        .more-items
+            padding-left: 66px
+
+            .more
+                padding: 6px 10px
+                font-size: (10/16) * 1em
+
+        .guidelines
+            .instruction
+                margin: 0 0 6px
+                font-size: (12/16) * 1em
+
+            .before-online
+                margin: 15px 0 20px
+                font-family: "OpenSans Semibold", sans-serif

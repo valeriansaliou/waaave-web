@@ -1,0 +1,81 @@
+// Bundle: Spot (assets)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+@import "controllers/functions"
+@import "controllers/keyframes"
+
+
+
+// Spot Items
+
+.items-wrapper
+    .items
+        .item-spot
+            .avatar-wrapper
+                &.spot-picture
+                    display: block !important
+
+            .spot
+                border-bottom: 1px dotted #d0d0d0
+
+                .title
+                    margin: 0 0 3px
+                    font-family: "OpenSans Semibold", sans-serif
+                    font-size: (15/16) * 1em
+
+                    .separator
+                        margin: 0 5px
+
+                    .category
+                        color: $grey
+                        font-family: "OpenSans", sans-serif
+                        font-size: (12/15) * 1em
+
+                .details
+                    margin-bottom: 10px
+                    font-size: (13/16) * 1em
+
+                .complement
+                    padding-bottom: 15px
+
+                    .join-wrapper
+                        display: inline-block
+
+                    .write-tutorial, .suggest-book
+                        display: none
+
+                    .nb-tutorials, .nb-books, .write-tutorial, .suggest-book
+                        font-size: (13/16) * 1em
+
+                    .nb-tutorials, .write-tutorial
+                        margin-left: 15px
+
+                    .nb-books, .suggest-book
+                        margin-left: 10px
+
+
+/* For Smartphone (L) & Beyond */
+@media screen and (min-width: 479px)
+    .items-wrapper
+        .items
+            .item-spot
+                .avatar-wrapper, .spot
+                    margin-top: 10px
+
+                .spot
+                    padding-left: 100px
+
+    .suggest-pane
+        .items
+            .item-spot
+                .avatar-wrapper, .spot
+                    margin-top: 0
+
+                .spot
+                    border-bottom: none
+                    padding-left: 0

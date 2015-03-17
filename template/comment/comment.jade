@@ -1,0 +1,28 @@
+- load avatar
+
+.block-comments(
+    data-fetch='{% url "comment.views.read" item_type item_id %}'
+)
+  include comment/_comment_add
+  include comment/_comment_reply
+  
+  .comments
+  
+  .comments-load
+    span.loader
+    span.notice
+      | Comments loading, hold on...
+
+  .comments-load-error
+    .comments-load-error-container
+      .alert.alert-error
+        span.icon
+        | Could not load comments. 
+        a.comment-load-retry(
+          href='#'
+        )
+          | Retry?
+
+  .show-more
+    span.more
+      | Show More

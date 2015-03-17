@@ -1,0 +1,75 @@
+// Bundle: Bootstrap (vendor)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+
+
+
+// Bootstrap >> Variables and Mixins
+
+@import "bootstrap_vars"
+
+
+
+// Bootstrap >> Alerts
+
+.alert
+    padding: 10px 20px 10px 55px
+    border: 1px solid #dab56e
+    background-color: #fdd486
+    color: #877044
+    +box-shadow(#feefc7 0 1px 0 0 inset)
+    +text-shadow(#ffffff 1px 1px 1px)
+
+    font-size: (14/16) * 1em
+    a
+        text-decoration: underline
+
+    .icon
+        float: left
+        margin: 3px 0 0 -35px
+        +sprite-background($bootstrapItems, 'alert-icon')
+
+
+.alert-success
+    border: 1px solid #778b43
+    background-color: #b6cf61
+    color: #ffffff
+    +box-shadow(#c6e36b 0 1px 0 0 inset)
+    +text-shadow(#4c592a 1px 1px 1px)
+
+    .icon
+        +sprite-background($bootstrapItems, 'alert-icon-success')
+
+
+.alert-warning
+    border: 1px solid #c68223
+    background-color: #ffbe40
+    color: #ffffff
+    +box-shadow(#ffe5ae 0 1px 0 0 inset)
+    +text-shadow(#633d07 1px 1px 1px)
+
+    .icon
+        +sprite-background($bootstrapItems, 'alert-icon-warning')
+
+
+.alert-error
+    border: 1px solid #8d312d
+    background-color: #e16660
+    color: #ffffff
+    +box-shadow(#feb3b0 0 1px 0 0 inset)
+    +text-shadow(#731f1c 1px 1px 1px)
+
+    .icon
+        +sprite-background($bootstrapItems, 'alert-icon-error')
+
+
+.alert-success,
+.alert-warning,
+.alert-error
+    a
+        color: #ffffff

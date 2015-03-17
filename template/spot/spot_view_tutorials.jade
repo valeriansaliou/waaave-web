@@ -1,0 +1,31 @@
+extends spot/__spot
+
+- load staticfiles page
+
+block title
+  | Spot
+
+block stylesheets
+  | {{ block.super }}
+  link(rel='stylesheet' href='{% static "assets/spot/stylesheets/spot_view.css" %}', type='text/css')
+
+block extra_head
+
+block spot
+  .spot-view
+    include spot/_spot_header
+    include spot/_spot_navigation
+    
+    .spot-tutorials
+      if items
+        .items-wrapper
+          .items
+            for tutorial in items
+              include tutorial/_tutorial_item
+      
+      else
+        .alert
+          span.icon
+          | There is no tutorial in this spot.
+
+      | {% pagination spot_view spot_page spot_page_total %}

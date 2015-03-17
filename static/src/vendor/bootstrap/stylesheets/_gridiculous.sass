@@ -1,0 +1,293 @@
+// Bundle: Bootstrap (vendor)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+// Grid
+
+*
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    -ms-box-sizing: border-box
+    box-sizing: border-box
+
+
+body
+    font-size: 100%
+    line-height: 1.6875
+
+
+img
+    max-width: 100%
+    height: auto
+    display: block
+    margin-left: auto
+    margin-right: auto
+
+
+.grid
+    margin: 0 auto
+    max-width: 1200px
+    width: 100%
+
+
+
+// Grid >> Row
+
+.g-row:before,
+.g-row:after,
+.g-clearfix:before,
+.g-clearfix:after
+    content: ''
+    display: table
+
+
+.g-row:after,
+.g-clearfix:after
+    clear: both
+
+
+.g-row,
+.g-clearfix
+    zoom: 1
+
+
+
+// Grid >> Width
+
+.g-wfull
+    width: 100%
+    max-width: 100%
+
+
+.g-w320
+    max-width: 320px
+
+
+.g-w640
+    max-width: 640px
+
+
+.g-w960
+    max-width: 960px
+
+
+
+// Grid >> Row & Columns & Pushes
+
+.g-row
+    width: 100%
+    margin-bottom: 20px
+
+
+.g-row .g-row
+    width: auto
+    margin: 0 -20px
+
+
+.g-c1
+    width: 8.33%
+
+
+.g-c2
+    width: 16.66%
+
+
+.g-c3
+    width: 25%
+
+
+.g-c4
+    width: 33.33%
+
+
+.g-c5
+    width: 41.66%
+
+
+.g-c6
+    width: 50%
+
+
+.g-c7
+    width: 58.33%
+
+
+.g-c8
+    width: 66.66%
+
+
+.g-c9
+    width: 75%
+
+
+.g-c10
+    width: 83.33%
+
+
+.g-c11
+    width: 91.66%
+
+
+.g-c12
+    width: 100%
+
+
+.g-c1,
+.g-c2,
+.g-c3,
+.g-c4,
+.g-c5,
+.g-c6,
+.g-c7,
+.g-c8,
+.g-c9,
+.g-c10,
+.g-c11,
+.g-c12
+    min-height: 1px
+    float: left
+    padding-left: 20px
+    padding-right: 20px
+    position: relative
+
+
+.g-s1
+    margin-left: 8.33%
+
+
+.g-s2
+    margin-left: 16.66%
+
+
+.g-s3
+    margin-left: 25%
+
+
+.g-s4
+    margin-left: 33.33%
+
+
+.g-s5
+    margin-left: 41.66%
+
+
+.g-s6
+    margin-left: 50%
+
+
+.g-s7
+    margin-left: 58.33%
+
+
+.g-s8
+    margin-left: 66.66%
+
+
+.g-s9
+    margin-left: 75%
+
+
+.g-s10
+    margin-left: 83.33%
+
+
+.g-s11
+    margin-left: 91.66%
+
+
+.g-end
+    float: right !important
+
+
+
+// Grid >> Media Queries
+
+/* For Small Tablets, Tablets, WideScreen & HDTV */
+@media screen and (max-width: 599px)
+    .hide-on-mobile,
+    .g-ho-m
+        display: none !important
+
+
+/* For WideScreen & HDTV */
+@media screen and (max-width: 1200px)
+    .hide-on-mobile-and-tablet,
+    .g-ho-mt
+        display: none !important
+
+
+/* For Smartphones, Small Tablets & Tablets */
+@media screen and (min-width: 1200px)
+    .hide-on-desktop,
+    .g-ho-d
+        display: none !important
+
+
+@media only screen and (max-width:960px)
+    .g-row .g-row
+        .g-c1,
+        .g-c2,
+        .g-c3,
+        .g-c4,
+        .g-c5,
+        .g-c6,
+        .g-c7,
+        .g-c8,
+        .g-c9,
+        .g-c10,
+        .g-c11,
+        .g-c12
+            width: 100%
+            margin-bottom: 20px
+
+        & > div:last-child
+            margin-bottom: 0 !important
+
+
+@media only screen and (max-width:960px)
+    .g-row .g-row
+        .g-c1,
+        .g-c2,
+        .g-c3,
+        .g-c4,
+        .g-c5,
+        .g-c6,
+        .g-c7,
+        .g-c8,
+        .g-c9,
+        .g-c10,
+        .g-c11,
+        .g-c12
+            width: 100%
+            margin-bottom: 20px
+
+        & > div:last-child
+            margin-bottom: 0 !important
+
+
+@media handheld, only screen and (max-width: 768px), only screen and (max-device-width: 768px) and (orientation:portrait)
+    body
+        font-size: 90%
+
+    .g-row
+        margin-bottom: 0 !important
+
+    .g-c1,
+    .g-c2,
+    .g-c3,
+    .g-c4,
+    .g-c5,
+    .g-c6,
+    .g-c7,
+    .g-c8,
+    .g-c9,
+    .g-c10,
+    .g-c11,
+    .g-c12
+        width: 100%
+        margin-right: 0
+        margin-left: 0
+        margin-bottom: 20px

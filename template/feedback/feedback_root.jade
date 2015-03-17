@@ -1,0 +1,137 @@
+extends __base
+
+- load staticfiles objects
+
+block title
+  | Feedback
+
+block stylesheets
+  | {{ block.super }}
+  link(rel='stylesheet' href='{% static "assets/feedback/stylesheets/feedback_root.css" %}', type='text/css')
+
+block javascripts
+  | {{ block.super }}
+
+block extra_head
+
+block content
+  .grid
+    .g-c10.main-zone-c10
+      .main-zone.shadow-light-if-desktop
+        include _sidebar_left
+        
+        .body-central-wrapper
+          .body-central.feedback
+            .feedback
+                if form.errors
+                  .alert.alert-error.hide-on-desktop
+                    span.icon
+                    | Please complete the form.
+                  
+                  .alert.alert-error.hide-on-mobile
+                    span.icon
+                    | We need you to provide more feedback details before you submit the form.
+                
+                elif report_sent
+                  .alert.alert-success.hide-on-desktop
+                    span.icon
+                    | Feedback submitted.
+                  
+                  .alert.alert-success.hide-on-mobile
+                    span.icon
+
+                    if not report_already_sent
+                      | Your feedback has been submitted. 
+                      | We added you rank points as a gift. 
+                      | We may email you if we have any question, regarding your feedback report.
+                    else
+                      | Your feedback has been updated. Thanks for taking time to do so.
+
+                elif report_already_sent
+                  .alert.hide-on-desktop
+                    span.icon
+                    | Feedback already submitted.
+                  
+                  .alert.hide-on-mobile
+                    span.icon
+                    | You already provided us your feedback. If you changed your mind, you can still edit it.
+
+                h4
+                  | Send us your feedback
+                
+                .main-area
+                  form.classic-form.feedback-form(action='./', method='post')
+                    | {% csrf_token %}
+
+                    .heading
+                      | Your feedback is critical to us. This helps us improve your user experience, and make Waaave the most relevant for you.
+                      
+                      if not report_already_sent
+                        br
+                        b
+                          i You will earn rank points after completing your feedback report.
+
+                    .main-form
+                      for field in form
+                        .main-form-item
+                          label.label-main(for='id_{{ field.html_name }}')
+                            h5
+                              if field.help_text
+                                | {{ field.help_text }}
+                              else
+                                | {{ field.label }}
+                          
+                          if field.field.widget|klass == 'RadioSelect'
+                            ul
+                              each radio_value, radio_label in field.field.choices
+                                li
+                                  if field.value == radio_value
+                                    input(
+                                      type='radio',
+                                      name='{{ field.html_name }}',
+                                      class='radio-classic',
+                                      id='{{ field.html_name }}-{{ radio_value }}',
+                                      value='{{ radio_value }}',
+                                      checked=true
+                                    )
+                                  else
+                                    input(
+                                      type='radio',
+                                      name='{{ field.html_name }}',
+                                      class='radio-classic',
+                                      id='{{ field.html_name }}-{{ radio_value }}',
+                                      value='{{ radio_value }}'
+                                    )
+
+                                  label(for='{{ field.html_name }}-{{ radio_value }}')
+                                    span.img
+                                    span.label-text {{ radio_label }}
+
+                                  .clear
+
+                          else
+                            | {{ field }}
+
+                          for error in field.errors
+                            span.input-tooltip-error(
+                              class='{{ field.html_name }}-error'
+                            )
+                              | {{ error|escape }}
+
+                          .clear
+
+                    .submit-bar
+                      button.btn.btn-primary(type='submit')
+                        | Submit Feedback
+                      
+                      .clear
+
+        .clear
+
+    .g-c2.sidebar-right-c2
+      include _sidebar_right
+
+    .clear
+
+block footer
+  include _footer_big

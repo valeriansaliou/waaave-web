@@ -1,0 +1,43 @@
+extends account/__account_register
+
+- load navigation
+
+block register_step
+  .register-steps(
+    class=('invalid' if form.errors else '')
+  )
+    .heading
+      block register_step_heading
+      
+      .clear
+
+    .register-breadcrumb.hide-on-mobile
+      span#breadcrumbRegister.register.breadcrumb-step-1(
+        class='{% active "^/account/register/go/" %}{% done "^/account/register/(profile|about)/" %}'
+      )
+        span.details Register
+        span.arrow
+      
+      | 
+
+      span#breadcrumbProfile.profile.breadcrumb-step-2(
+        class='{% active "^/account/register/profile/" %}{% done "^/account/register/about/" %}'
+      )
+        span.details Profile
+        span.arrow
+
+      | 
+
+      span#breadcrumbAbout.about.breadcrumb-step-3(
+        class='{% active "^/account/register/about/" %}'
+      )
+        span.details About
+      
+      .clear
+
+    form#registrationForm.registration-form(action='./', method='post')
+      | {% csrf_token %}
+
+      block register_step_form
+
+      input(type='hidden', name='current_step', value='{{ current_step }}')

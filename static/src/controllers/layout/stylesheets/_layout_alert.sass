@@ -1,0 +1,31 @@
+// Bundle: Layout (controllers)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+// Layout >> Alerts
+
+.alert-block
+    .alert-singular
+        &.async-load-error
+            display: none
+
+.alert-desktop
+    .alert
+        margin-bottom: 25px
+
+    .alert-singular
+        &.not-user-confirmed,
+        &.user-confirm-resent
+            a
+                margin-left: 6px
+                text-decoration: underline
+
+
+/* For WideScreen & Beyond */
+@media screen and (min-width: 1200px)
+    .alert-desktop
+        .grid .g-c12
+            padding-right: 0

@@ -1,0 +1,21 @@
+- load static
+
+.notification.notification-join-us
+  span.waaave-icon
+  
+  .content
+    span.notification-label
+      | Do you like this work? 
+      br
+      a(href='')
+        | Join us and start writing yours!
+    
+    a(href='{% url "account.views.login_social" "facebook" %}', data-async='disabled')
+      span.facebook-connect-small
+    
+    a(href='{% url "account.views.login_social" "twitter" %}', data-async='disabled')
+      span.twitter-connect-small
+    
+    .clear
+  
+  a.close(href='#')

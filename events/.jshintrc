@@ -1,0 +1,11 @@
+/*
+ * Waaave
+ * JSHint configuration for Sublime Text
+ *
+ * Copyright 2014, Waaave
+ * Author: Valerian Saliou <valerian@valeriansaliou.name>
+ */
+
+{
+    "esnext": true
+}

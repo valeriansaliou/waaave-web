@@ -1,0 +1,22 @@
+- load navigation
+
+.navigation
+  nav.tabs
+    ul
+      li.tab(
+        class='{% active "^/explore/tutorials/" %}'
+      )
+        a(href='{% url "explore.views.tutorials" %}')
+          | Tutorials
+      
+      li.tab(
+        class='{% active "^/(spot|explore/spots)/" %}'
+      )
+        a(href='{% url "explore.views.spots" %}')
+          | Spots
+        
+      //- li.tab(
+      //-   class='{% active "^/(book|explore/books)/" %}'
+      //- )
+      //-   a(href='{% url "explore.views.books" %}')
+      //-     | Books

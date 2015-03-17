@@ -1,0 +1,19 @@
+- load join_btn spot_picture humanize
+
+if sidebar_right.spots
+  .popular-spots
+    .spots
+      for spot in sidebar_right.spots
+        .spot-card
+          | {% spot_picture_small spot.item %}
+          
+          .spot
+            a.name(href='{% url "spot.views.view_root" spot.item.slug %}')
+              | {{ spot.item.name|truncatechars:60 }}
+            
+            span.description
+              | {{ spot.item.description|truncatechars:65 }}
+            
+            | {% join_btn_count_small spot.item %}
+          
+          .clear

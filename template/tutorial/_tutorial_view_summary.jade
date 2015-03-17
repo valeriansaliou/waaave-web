@@ -1,0 +1,24 @@
+- load humanize relevance_buttons
+
+include user/_user_view_summary
+
+.tutorial-statistics
+  .tuto-stat.views
+    span.key
+      | Views
+    span.value
+      | {{ tut_stats_views|intcomma }}
+    
+    .clear
+  
+  .tuto-stat.sharing
+    span.key
+      | Shares
+    span.value
+      | {{ tut_meta.shares|intcomma }}
+    
+    .clear
+  
+  .clear
+  
+  | {% relevance_buttons item_type item_id %}

@@ -1,0 +1,45 @@
+{
+  "name": "static.waaave-web",
+  "description": "Waaave static sources",
+  "version": "0.0.6",
+  "homepage": "https://static.waaave.com/",
+
+  "repository": {
+    "type": "git",
+    "url": "https://code.hakuma.holdings/waaave/waaave-web.git"
+  },
+
+  "author": {
+    "name": "Valerian Saliou",
+    "url": "https://valeriansaliou.name/"
+  },
+
+  "main": "Gruntfile.js",
+
+  "engines": {
+    "node": ">=0.10.0"
+  },
+
+  "scripts": {
+    "clean": "grunt clean:reset",
+    "build-development": "grunt build:development",
+    "build-testing": "grunt build:testing",
+    "build-production": "grunt build:production",
+    "lint": "grunt lint"
+  },
+
+  "dependencies": {
+    "grunt": "0.4.5",
+    "underscore": "1.7.0",
+    "grunt-includes": "0.4.5",
+    "grunt-contrib-watch": "0.6.1",
+    "grunt-contrib-clean": "0.6.0",
+    "grunt-contrib-concat": "0.5.0",
+    "grunt-contrib-uglify": "0.6.0",
+    "grunt-contrib-compass": "1.0.1",
+    "grunt-contrib-coffee": "0.12.0",
+    "grunt-contrib-copy": "0.7.0",
+    "grunt-contrib-imagemin": "0.9.2",
+    "grunt-contrib-csslint": "0.3.1"
+  }
+}

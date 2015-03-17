@@ -1,0 +1,30 @@
+- load avatar
+
+.add-comment
+  if user.is_authenticated
+    | {% avatar_small request.user 'complete' %}
+  else
+    | {% avatar_small complete='complete' %}
+
+  form#addComment.add-comment-form(action='{% url "comment.views.add" item_type item_id %}', method='post')
+    | {% csrf_token %}
+    
+    .bubble
+      textarea.comment-field(
+        name='comment_body',
+        placeholder='{{ comment_placeholder|default:"Leave a comment and start a conversation with others." }}'
+      )
+      
+      .clear
+    
+    button.btn.btn-small.btn-primary.comment-submit(
+      type='submit',
+      name='comment_post',
+      value='1',
+      data-tooltip-login='Please login to post your comment'
+    )
+      | Post
+
+    include comment/_comment_parse_notice
+   
+    .clear

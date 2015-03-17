@@ -1,0 +1,71 @@
+extends company/__company
+
+- load staticfiles honeypot
+
+block title
+  | Contact | Company
+
+block stylesheets
+  | {{ block.super }}
+  link(rel='stylesheet' href='{% static "assets/company/stylesheets/company_contact.css" %}', type='text/css')
+
+block javascripts
+  | {{ block.super }}
+
+block extra_head
+
+block company
+  .contact
+    if form.errors
+      .alert.alert-error.hide-on-desktop
+        span.icon
+        | Please provide more details.
+      
+      .alert.alert-error.hide-on-mobile
+        span.icon
+        | We need you to provide more details to contact us. See below.
+    
+    if message_sent
+      .alert.alert-success.hide-on-desktop
+        span.icon
+        | Message sent.
+      
+      .alert.alert-success.hide-on-mobile
+        span.icon
+        | Your message has been sent. We will reply soon.
+
+    h4
+      | Contact our team
+    
+    .main-area
+      form.classic-form.contact-form(action='./', method='post')
+        | {% csrf_token %}
+        | {% render_honeypot_field %}
+
+        .heading
+          | Feel free to ask us anything you want to know. We will try to respond as fast as possible.
+
+        .main-form
+          for field in form
+            .main-form-item
+              label.label-main(for='id_{{ field.html_name }}')
+                | {{ field.label }}
+              
+              | {{ field }}
+              
+              for error in field.errors
+                span.input-tooltip-error(
+                  class='{{ field.html_name }}-error'
+                )
+                  | {{ error|escape }}
+
+              if field.help_text
+                span.tool-tip {{ field.help_text }}
+
+              .clear
+
+        .submit-bar
+          button.btn.btn-primary(type='submit')
+            | Send Message
+          
+          .clear

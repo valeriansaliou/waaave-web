@@ -1,0 +1,11 @@
+#######################################
+### DJANGO DEVELOPMENT APACHE RULES ###
+#######################################
+
+# DOMAIN  : api.waaave.com.dev
+# WARNING : not to be used on both staging and production!
+
+
+# Alias of Waaave api app
+RewriteEngine   On
+RewriteRule     ^(.*)$   http://localhost:8000/api/$1   [P,L]

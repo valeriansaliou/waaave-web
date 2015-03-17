@@ -1,0 +1,129 @@
+// Bundle: User (assets)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+@import "controllers/functions"
+@import "controllers/keyframes"
+
+
+
+// User >> Variables
+
+$tutorialBoth: sprite-map("assets/tutorial/images/tutorial_view_both/*.png")
+
+
+
+// User >> Author Profile (Left Summary)
+
+.left-summary-desktop
+    display: none
+
+
+/* For Tablet & Beyond */
+@media screen and (min-width: 767px)
+    .left-summary-desktop
+        display: block
+        float: left
+        width: 160px
+        margin-right: 30px
+        margin-bottom: 20px
+        padding-top: 10px
+        padding-left: 5px
+
+        .author-social
+            .social-networks
+                .facebook,
+                .twitter,
+                .googleplus,
+                .website
+                    margin-right: 10px
+
+                .facebook
+                    +sprite-background($tutorialBoth, 'tutorial-social-icon-facebook')
+
+                .twitter
+                    +sprite-background($tutorialBoth, 'tutorial-social-icon-twitter')
+
+                .googleplus
+                    +sprite-background($tutorialBoth, 'tutorial-social-icon-googleplus')
+
+                .website
+                    +sprite-background($tutorialBoth, 'tutorial-social-icon-website')
+
+        .cutline
+            width: 120px
+            height: 1px
+            margin: 15px 0
+            background-color: #bbbbbb
+
+        .user-statistics,
+        .tutorial-statistics
+            .user-stat,
+            .tuto-stat
+                float: left
+                margin-bottom: 5px
+                font-size: (13/16) * 1em
+                width: 75px
+
+                .key,
+                .value
+                    display: block
+                    float: left
+
+                .key
+                    margin-bottom: 1px
+                    font-family: "OpenSans Extrabold", sans-serif
+
+                .value
+                    clear: left
+
+        .tutorial-statistics
+            .relevance
+                .btn-relevant,
+                .btn-irrelevant
+                    &.active
+                        +box-shadow(none)
+                        +text-shadow(#48592C 1px 1px 1px)
+
+    .user-profile-small
+        display: none
+
+
+/* For Small Tablet (L) & Beyond */
+@media screen and (min-width: 799px)
+    .left-summary-desktop
+        position: relative
+        width: 200px
+        padding-top: 30px
+        padding-left: 30px
+
+        &:after
+            content: ""
+            position: absolute
+            top: 0
+            bottom: 0
+            right: -1px
+            width: 1px
+            +background-image(linear-gradient(#d0d0d0, #ffffff))
+
+
+/* For Tablet (L) & Beyond */
+@media screen and (min-width: 1023px)
+    .left-summary-desktop
+        width: 250px
+        padding-left: 40px
+
+        .user-profile
+            .avatar-wrapper
+                margin-bottom: 8px
+
+        .user-statistics,
+        .tutorial-statistics
+            .user-stat,
+            .tuto-stat
+                width: 82px
+                margin-bottom: 8px

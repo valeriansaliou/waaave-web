@@ -1,0 +1,30 @@
+- load humanize avatar
+
+.notification.notification-response(
+  class=('new' if response['new'] else ''),
+  data-type='response',
+  data-id='{{ response.id }}',
+  data-url-read='{% url "notification.views.read" "single" "response" response.id %}'
+)
+  | {% avatar_small response.data.user 'complete' %}
+  
+  .content
+    span.notification-label
+      a.semibold(href='{% url "user.views.main" response.data.user.username %}')
+        | {{ response.data.user.first_name|title }} {{ response.data.user.last_name|title }}
+      | replied to your comment on 
+      
+      if response.data.item_type == 'tutorial'
+        a(href='{% url "tutorial.views.view" response.data.item_data.url.tag response.data.item_data.url.slug %}#comment-{{ response.data.comment.id }}') {{ response.data.item_data.title }}
+        | .
+
+    span.elapsed
+      | {{ response.date|naturaltime }}
+    
+    if response.new
+      span.label-new
+        | New
+
+    .clear
+
+  a.close(href='#')

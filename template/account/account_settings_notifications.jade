@@ -1,0 +1,81 @@
+extends account/__account_settings
+
+- load staticfiles
+
+block title
+  | Notification Center | Settings
+
+block stylesheets
+  | {{ block.super }}
+  link(rel='stylesheet' href='{% static "assets/account/stylesheets/account_settings.css" %}', type='text/css')
+  link(rel='stylesheet' href='{% static "assets/account/stylesheets/account_settings_notifications.css" %}', type='text/css')
+
+block javascripts
+  | {{ block.super }}
+  script(src='{% static "assets/account/javascripts/account_settings_notifications.js" %}', type='text/javascript')
+
+block extra_head
+
+block settings
+  if form_saved
+    .alert.alert-success.hide-on-desktop
+      span.icon
+      | Notification settings saved.
+    
+    .alert.alert-success.hide-on-mobile
+      span.icon
+      | Your notification settings have been saved.
+
+  .notification-center
+    .heading
+      | Here is 
+      span.bold
+        | a complete overview
+      | of your notifications.
+    
+    .notification-items
+      - with notifications=notification_feed
+        include account/_account_settings_notifications_items
+      
+      include account/_account_settings_notifications_more
+    
+    .clear
+
+  .complements.complements-notification
+    form#settingsForm.settings-form(action='./', type='_POST', method='post')
+      | {% csrf_token %}
+      
+      .notification-form
+        for field in form
+          if forloop.counter == 1
+            .subheading
+              span.bold
+                | Get notified of activity
+              | at Waaave and control how often we send emails to you.
+          
+          if forloop.counter == 4
+            .subheading
+              span.bold
+                | Set your notifications
+
+          .main-form-item-checkbox
+            | {{ field }}
+            
+            for error in field.errors
+              span.input-tooltip-error(
+                class='{{ field.html_name }}-error'
+              )
+                | {{ error|escape }}
+
+            label(for='id_{{ field.html_name }}')
+              span.img
+
+            label.checkbox-classic-label(for='id_{{ field.html_name }}')
+              | {{ field.help_text }}
+
+        button.btn.btn-primary.btn-small.btn-submit(type='submit')
+          | Save Changes
+
+      .clear
+
+  .clear

@@ -1,0 +1,16 @@
+- load navigation
+
+.navigation
+  nav.tabs
+    ul
+      li.tab(
+        class='{% active "^/moderation/tutorials/" %}'
+      )
+        a(href='{% url "moderation.views.tutorials" %}')
+          | Tutorial Validation
+      
+      li.tab(
+        class='{% active "^/moderation/comments/" %}'
+      )
+        a(href='{% url "moderation.views.comments" %}')
+          | Comment Management

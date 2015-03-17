@@ -1,0 +1,8 @@
+# Software
+.sass-cache/
+node_modules/
+
+# Builds
+build/
+dist/
+tmp/

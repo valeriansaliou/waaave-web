@@ -1,0 +1,33 @@
+extends book/__book
+
+- load staticfiles bbcode comment hitcount_tags
+
+block title
+  | {{ book.item.title }} | {{ book.item.author.person.first_name }} {{ book.item.author.person.last_name }} | Book
+
+block stylesheets
+  | {{ block.super }}
+  link(rel='stylesheet' href='{% static "assets/book/stylesheets/book_view.css" %}', type='text/css')
+
+block javascripts
+  | {{ block.super }}
+
+block extra_head
+
+block book
+  .book-view
+    .items-wrapper
+      .items
+        .item-book
+          include book/_book_item_left
+          
+          - with type='complete'
+            include book/_book_item_inner
+
+    .book-comments
+      | {% comment item_type item_id %}
+
+  script(type='text/javascript').
+    $(document).ready(function() {
+      {% get_hit_count_javascript for book.item %}
+    });

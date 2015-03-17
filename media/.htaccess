@@ -1,0 +1,6 @@
+#######################################
+### DJANGO DEVELOPMENT APACHE RULES ###
+#######################################
+
+# DOMAIN  : media.waaave.com.dev
+# WARNING : not to be used on both staging and production!

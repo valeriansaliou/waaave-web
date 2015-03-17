@@ -1,0 +1,24 @@
+for item in notifications
+  if item.type == 'comment'
+    - with comment=item
+      include notification/_notification_item_comment
+  
+  elif item.type == 'spot'
+    - with spot=item
+      include notification/_notification_item_spot
+  
+  elif item.type == 'response'
+    - with response=item
+      include notification/_notification_item_response
+  
+  elif item.type == 'follow'
+    - with follow=item
+      include notification/_notification_item_follow
+  
+  elif item.type == 'follow-add'
+    - with follow_add=item
+      include notification/_notification_item_follow_add
+  
+  elif item.type == 'waaave'
+    - with waaave=item
+      include notification/_notification_item_waaave

@@ -1,0 +1,84 @@
+// Bundle: Moderation (assets)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+
+@import "controllers/configuration"
+@import "controllers/functions"
+@import "controllers/keyframes"
+
+
+
+// Moderation >> Tutorial Validation >> Tutorials
+
+/* For Small Tablet & Beyond */
+@media screen and (min-width: 599px)
+    .tutorials
+        .tutorial
+            .tutorial-details
+                .author
+                    display: none
+
+                .cutline-author
+                    display: none
+
+
+/* For Tablet & Beyond */
+@media screen and (min-width: 767px)
+    .tutorials
+        .tutorial
+            .tutorial-details
+                .author
+                    float: left
+                    width: 130px
+                    text-align: center
+
+                .cutline-author
+                    display: inline-block
+
+
+/* For Small Tablet (L) & Beyond */
+@media screen and (min-width: 799px)
+    .tutorials
+        .tutorial
+            .tutorial-details
+                .title,
+                .title-search
+                    width: 400px
+
+                .author
+                    display: none
+
+                .cutline-author
+                    display: none
+
+
+/* For Tablet (L) & Beyond */
+@media screen and (min-width: 1023px)
+    .tutorials
+        .tutorial
+            .tutorial-details
+                .title,
+                .title-search
+                    width: 450px
+
+                .author
+                    display: inline-block
+                    width: 145px
+
+                .cutline-author
+                    display: inline-block
+
+
+/* For WideScreen & Beyond */
+@media screen and (min-width: 1200px)
+    .tutorials
+        .tutorial
+            .tutorial-details
+                .title,
+                .title-search
+                    width: 390px

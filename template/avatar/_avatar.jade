@@ -1,0 +1,17 @@
+.avatar-wrapper(
+  class=(['avatar-wrapper-%s' % str(size) if size != 'normal' else ''], ['wr%s' % str(rank_scss) if user else ''])
+)
+  .avatar(
+    class=('avatar-%s' % str(size) if size != 'normal' else '')
+  )
+    if user
+      a(href='{% url "user.views.main" user.username %}')
+        | {{ avatar|safe }}
+    else
+      | {{ avatar|safe }}
+
+    if user and profile
+      span.label.label-blue(
+        class=(['label-%s' % str(size) if size != 'normal' else ''], ['one-digit' if profile.rank < 10 else ''])
+      )
+        | {{ profile.rank }}

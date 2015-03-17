@@ -1,0 +1,20 @@
+- load navigation
+
+.navigation
+  nav.tabs
+    ul
+      li.tab(
+        class='{% active "^/dashboard/tutorials/" %}'
+      )
+        a(href='{% url "dashboard.views.root" %}')
+          | Tutorial Manager
+      
+      li.tab(
+        class='{% active "^/dashboard/tutorial/(new|edit)/" %}'
+      )
+        if '/dashboard/tutorial/edit/' in request.path
+          a(href='{{ request.path }}')
+            | Edit a Tutorial
+        else
+          a(href='{% url "dashboard.views.tutorial_new" %}')
+            | Add a Tutorial

@@ -1,0 +1,75 @@
+- load humanize avatar follow_btn profile
+
+.user-profile
+  | {% avatar_normal aut_user 'complete' %}
+  
+  .content
+    h3.author
+      a(href='{% url "user.views.main" aut_user.username %}')
+        | {{ aut_user.first_name|title }} {{ aut_user.last_name|title }}
+    
+    h4.specialty
+      | {{ aut_profile.specialty|title }}
+    
+    if aut_profile.city and aut_profile.country
+      .from
+        span.pin
+        span.city
+          | {{ aut_profile.city|title }}, {{ aut_profile.country }}.
+
+    | {% follow_btn_large aut_user %}
+
+.author-social
+  | {% social_networks aut_user %}
+
+//- mixin badges(badge, label, description)
+//-   .author-badges
+//-     span.badge(
+//-       class='badge-#{badge}',
+//-       title='#{description}'
+//-     )
+//-       | #{label}
+
+//- if not aut_user.is_active
+//-   +badges('black', 'Banned', 'This user has been banned')
+//- elif aut_user.is_staff
+//-   +badges('turquoise', 'Squad', 'This user is an administrator')
+//- elif aut_profile.email_verified
+//-   +badges('green', 'Verified', 'This user has verified his account')
+//- else
+//-   +badges('orange', 'Unverified', 'This user has not verified his account')
+
+.cutline
+
+.user-statistics
+  .user-stat.tutorials
+    span.key
+      | Tutorials
+    span.value
+      | {{ aut_stats.tutorials|intcomma }}
+    
+    .clear
+
+  .user-stat.views
+    span.key
+      | Views
+    span.value
+      | {{ aut_stats.views|intcomma }}
+   
+    .clear
+
+  .user-stat.following
+    span.key
+      | Following
+    span.value
+      | {{ aut_stats.followings|intcomma }}
+    
+    .clear
+  
+  .user-stat.followers
+    span.key
+      | Followers
+    span.value
+      | {{ aut_stats.followers|intcomma }}
+   
+    .clear

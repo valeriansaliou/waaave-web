@@ -1,0 +1,111 @@
+// Bundle: Account (assets)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+@import "compass"
+
+@import "controllers/configuration"
+@import "controllers/functions"
+@import "controllers/keyframes"
+
+@import "account_emblemize"
+
+
+
+// Recover >> Layout Ajustments
+
+.alerts
+    display: none
+
+
+/* For Small Tablet & Beyond */
+@media screen and (min-width: 599px)
+    .body
+        padding-bottom: 235px
+
+
+/* For Tablet & Beyond */
+@media screen and (min-width: 767px)
+    .body
+        padding-bottom: 425px
+
+
+/* For Small Tablet (L) & Beyond */
+@media screen and (min-width: 799px)
+    .body
+        padding-bottom: 120px
+
+
+/* For Tablet (L) & Beyond */
+@media screen and (min-width: 1023px)
+    .body
+        padding-bottom: 250px
+
+
+
+// Recover >> Forgot Form
+
+.cont-forgot-password
+    margin-top: 25px
+
+    .alert
+        margin-bottom: 22px
+
+    fieldset
+        margin: 0
+        padding: 0
+        border: none
+
+    .email-fieldset
+        .labels
+            display: inline-block
+            margin-bottom: 20px
+            color: $grey
+            font-size: (14/16) * 1em
+
+            .question
+                display: inline-block
+                margin-bottom: 4px
+                font-family: "OpenSans Semibold", sans-serif
+
+            .answer
+                display: inline-block
+                margin-bottom: 5px
+
+        input[type="text"],
+        input[type="password"]
+            width: 100%
+
+        .forgot-email
+            margin-bottom: 25px
+            padding-left: 50px
+            background-image: url('../images/account_emblemize_both/icon-paper-airplane.png')
+            background-position: 19px 50%
+            background-repeat: no-repeat
+
+        .forgot-password
+            margin-bottom: 14px
+
+        .forgot-password-confirm
+            margin-bottom: 24px
+
+        .forgot-password,
+        .forgot-password-confirm
+            width: 100%
+            padding: 14px 0
+            padding-left: 50px
+            font-size: (14/16) * 1em
+            background-image: url('../../../assets/account/images/account_register_both/icon-lock.png')
+            background-position: 20px 50%
+            background-repeat: no-repeat
+
+    .forgot-submit
+        float: left
+
+    .return
+        float: left
+        margin-left: 20px
+        padding-top: 5px
+        font-size: (14/16) * 1em

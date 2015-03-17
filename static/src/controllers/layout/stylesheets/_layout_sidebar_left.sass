@@ -1,0 +1,266 @@
+// Bundle: Layout (controllers)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+// Layout >> Left Sidebar >> Variables
+
+$leftSidebar: sprite-map("controllers/layout/images/layout_sidebar_left/*.png")
+
+
+
+// Layout >> Left Sidebar
+
+.sidebar-left-wrapper
+    display: none
+
+    .sidebar-left
+        .tabs
+            .tab
+                .tooltip
+                    display: none
+
+
+/* For Small Tablet (L) & Beyond */
+@media screen and (min-width: 799px)
+    .sidebar-left-wrapper
+        display: block
+        float: left
+        width: 18.9%
+        padding-right: 0
+
+    .sidebar-left
+        border-right: none
+
+        .tabs
+            margin: 0
+            padding-top: 49px
+            padding-left: 0
+            list-style: none
+
+            a
+                text-decoration: none
+
+            .tab
+                margin: 4px 0
+                border-left: 3px solid #f5f5f5
+                font-size: (12/14) * 1em
+                text-align: center
+                cursor: pointer
+
+                .icon
+                    float: left
+                    display: block
+                    margin: 5px 8px 5px 10px
+
+                .value
+                    float: left
+                    display: block
+                    margin-top: 3px
+                    color: $blue
+                    +text-shadow(1px 1px 1px #fff)
+
+                .notifs
+                    float: left
+                    display: block
+                    margin-top: 6px
+                    margin-left: 6px
+                    padding: 0 4px
+                    +border-radius(3px)
+                    background-color: #fafafa
+                    +background-image(linear-gradient(top, #ab4642, #c14f4b))
+                    color: #ffffff
+                    font-size: (10/12) * 1em
+                    line-height: 15px
+                    +text-shadow(1px 1px 0 #707070)
+
+                &:hover
+                    border-left-color: $grey
+
+                    .value
+                        color: #303030
+
+                &.active
+                    z-index: 100
+                    position: relative
+                    margin-bottom: 8px
+                    margin-left: -4px
+                    margin-right: -1px
+                    padding: 8px 0 7px
+                    border-top: solid 1px #d0d0d0
+                    border-right: solid 1px #ffffff
+                    border-bottom: solid 1px #d0d0d0
+                    border-left-color: #ab4642
+                    background-color: #ffffff
+                    +box-shadow(0 1px 3px #efefef)
+
+                    .icon
+                        margin-left: 14px
+
+                    .value
+                        color: $black
+                        +text-shadow(none)
+
+            .tab-facebook
+                .value
+                    color: #5370b3
+
+                .icon-facebook
+                    +sprite-background($leftSidebar, 'icon-facebook-normal')
+
+                &:hover
+                    border-left-color: #5370b3
+
+            .tab-twitter
+                .value
+                    color: #19c1f0
+
+                .icon-twitter
+                    +sprite-background($leftSidebar, 'icon-twitter-normal')
+
+                &:hover
+                    border-left-color: #19c1f0
+
+            .tab-timeline
+                .icon-timeline
+                    +sprite-background($leftSidebar, 'icon-timeline-normal')
+
+                &:hover,
+                &.active
+                    .icon-timeline
+                        +sprite-background($leftSidebar, 'icon-timeline-activated')
+
+            .tab-explore
+                .icon-explore
+                    +sprite-background($leftSidebar, 'icon-explore-normal')
+
+                &:hover,
+                &.active
+                    .icon-explore
+                        +sprite-background($leftSidebar, 'icon-explore-activated')
+
+            .tab-dashboard
+                .icon-dashboard
+                    +sprite-background($leftSidebar, 'icon-dashboard-normal')
+
+                .value
+                    margin-top: 1px
+
+                &:hover,
+                &.active
+                    .icon-dashboard
+                        +sprite-background($leftSidebar, 'icon-dashboard-activated')
+
+            .tab-settings
+                .icon-settings
+                    +sprite-background($leftSidebar, 'icon-settings-normal')
+
+                &:hover,
+                &.active
+                    .icon-settings
+                        +sprite-background($leftSidebar, 'icon-settings-activated')
+
+            .tab-moderation
+                .icon-moderation
+                    +sprite-background($leftSidebar, 'icon-moderation-normal')
+
+                &:hover,
+                &.active
+                    .icon-moderation
+                        +sprite-background($leftSidebar, 'icon-moderation-activated')
+
+
+/* For Tablet (L) & Beyond */
+@media screen and (min-width: 1023px)
+    .sidebar-left-wrapper
+        width: 14.6%
+
+    .sidebar-left
+        .tabs
+            padding-top: 50px
+
+
+/* For WideScreen & Beyond */
+@media screen and (min-width: 1200px)
+    .sidebar-left-wrapper
+        width: 15.1%
+
+    .sidebar-left
+        .tabs
+            .tab
+                .icon
+                    margin-left: 10px
+
+
+
+// Layout >> Mini Left Sidebar
+
+/* For Small Tablet (L) & Beyond */
+@media screen and (min-width: 799px)
+    .sidebar-left-wrapper-mini
+        width: 5%
+
+        .sidebar-left
+            .tabs
+                .tab
+                    .icon
+                        margin-left: 8px
+
+                    .value
+                        display: none
+
+                    .notifs
+                        margin-top: 12px
+                        margin-left: -18px
+                        line-height: 13px
+                        padding: 0 3px
+
+                    .tooltip
+                        position: relative
+                        z-index: 10
+                        float: left
+                        margin: -24px 0 0 43px
+                        padding: 2px 6px
+                        background-color: #303030
+                        color: #ffffff
+                        font-size: (10/12) * 1em
+                        opacity: 0.90
+
+                        .arrow
+                            float: left
+                            margin: 4px 0 0 -11px
+                            +sprite-background-simple($leftSidebar, 'tooltip-black-arrow')
+
+                        &.tooltip-facebook
+                            background-color: #5370b3
+
+                            .arrow
+                                +sprite-background-simple($leftSidebar, 'tooltip-blue-arrow')
+
+                        &.tooltip-twitter
+                            background-color: #19c1f0
+
+                            .arrow
+                                +sprite-background-simple($leftSidebar, 'tooltip-turquoise-arrow')
+
+                    &:hover
+                        .tooltip
+                            display: inline-block
+
+                    &.active
+                        .icon
+                            margin-top: 1px
+                            margin-bottom: 1px
+                            margin-left: 12px
+
+                        .tooltip
+                            margin-top: -20px
+                            margin-left: 47px
+
+
+/* For Tablet (L) & Beyond */
+@media screen and (min-width: 1023px)
+    .sidebar-left-wrapper-mini
+        width: 4%

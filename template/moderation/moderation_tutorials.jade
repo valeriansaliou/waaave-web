@@ -1,0 +1,64 @@
+extends moderation/__moderation
+
+- load staticfiles
+
+block title
+  | Tutorial Validation | Moderation
+
+block stylesheets
+  | {{ block.super }}
+  link(rel='stylesheet' href='{% static "assets/dashboard/stylesheets/dashboard_tutorial_root.css" %}', type='text/css')
+  link(rel='stylesheet' href='{% static "assets/moderation/stylesheets/moderation_tutorials.css" %}', type='text/css')
+
+block extra_head
+
+block moderation
+  form#managerForm.manager-form(
+    action='{% url "moderation.views.tutorial_trash" %}',
+    method='post'
+  )
+    | {% csrf_token %}
+
+    .filter-bar
+      include dashboard/_dashboard_tutorial_trash
+      .clear
+
+    .tutorials
+      if tutorial_list
+        .tutorials-info
+          | The {{ tutorial_list|length }} Tutorial{{ tutorial_list|length|pluralize }} appear according to their modification date.
+
+      for cur_tutorial in tutorial_list
+        .tutorial
+          .checkbox-wrapper
+            input.checkbox-classic(
+              id='checkboxClassicOff{{ forloop.counter }}',
+              type='checkbox',
+              name='tutorial_id',
+              value='{{ cur_tutorial.id }}'
+            )
+            
+            label(for='checkboxClassicOff{{ forloop.counter }}')
+              span.img
+          
+          .tutorial-details
+            .title
+              a(href='{% url "dashboard.views.tutorial_edit" cur_tutorial.id %}') {{ cur_tutorial.title.full }}
+            
+            .cutline.hide-on-mobile
+            
+            .author.hide-on-mobile
+              a(href='{% url "user.views.main" cur_tutorial.author.username %}')
+                | {{ cur_tutorial.author.first_name|title }} {{ cur_tutorial.author.last_name|title }}
+            
+            .cutline.cutline-author.hide-on-mobile
+            
+            .status
+              span(
+                class='{{ cur_tutorial.status.short }}'
+              )
+                | {{ cur_tutorial.status.full }}
+            
+            .clear
+          
+          .clear

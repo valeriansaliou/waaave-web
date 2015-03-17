@@ -1,0 +1,21 @@
+- load spot_picture humanize
+
+for spot in spots
+  .item.item-spot
+    | {% spot_picture_small spot.item %}
+    
+    a.link(href='{% url "spot.views.view_root" spot.item.slug %}')
+      .spot
+        .title
+          | {{ spot.item.name }}
+        
+        .complement
+          span.description
+            | {{spot.item.description|truncatechars:30 }}
+          
+          span.separator ·
+          
+          span.views
+            | {{ spot.views|intcomma }} view{{ spot.views|pluralize }}
+        
+        .clear

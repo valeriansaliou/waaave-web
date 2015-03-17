@@ -1,0 +1,51 @@
+// Bundle: Company (assets)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+
+@import "controllers/configuration"
+@import "controllers/functions"
+@import "controllers/keyframes"
+
+
+
+// Company >> Contact >> Main Area
+
+.main-area
+    .contact-form
+        .submit-bar
+            margin-top: 20px
+
+
+/* For Tablet & Beyond */
+@media screen and (min-width: 767px)
+    .main-area
+        .contact-form
+            .main-form-item
+                label,
+                .input-main,
+                .textarea-main,
+                .select-main,
+                .input-tooltip-error
+                    float: left
+
+                label
+                    min-width: 100px
+                    padding-right: 20px
+                    padding-top: 7px
+                    text-align: right
+
+                .input-tooltip-error
+                    padding-top: 14px
+
+                .input-main
+                    width: 350px
+
+                .textarea-main
+                    width: 450px
+                    height: 200px
+                    resize: vertical

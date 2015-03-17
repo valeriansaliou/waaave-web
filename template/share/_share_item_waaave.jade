@@ -1,0 +1,36 @@
+- load humanize avatar
+
+.item.item-waaave
+  | {% avatar_normal waaave.data.0.data.user 'complete' %}
+  
+  .heading
+    a(href='{% url "user.views.main" waaave.data.0.data.user.username %}')
+      | {{ waaave.data.0.data.user.first_name|title }} {{ waaave.data.0.data.user.last_name|title }}
+    
+    if waaave.data|length > 1
+      | and 
+      a(title='{% for item in waaave.data|slice:"1:" %}{% if forloop.counter > 1 %}, {% endif %}{{ item.data.user.first_name }} {{ item.user.last_name }}{% endfor %}')
+        | {{ waaave.data|slice:'1:'|length|intcomma }} other{{ waaave.data|slice:'1:'|length|pluralize }}
+
+    | waaaved
+    
+    if waaave.meta.item_type == 'tutorial'
+      | a Tutorial
+    elif waaave.meta.item_type == 'book'
+     | a Book
+    else
+      | something
+
+    span.separator ·
+    span.ago
+      | {{ waaave.date|naturaltime }}
+  
+  if waaave.meta.item_type == 'tutorial'
+    .tutorial-card
+      - with tutorial=waaave.meta.item_data.data
+        include tutorial/_tutorial_item_inner
+  
+  elif waaave.meta.item_type == 'book'
+    .book-card
+      - with book=waaave.meta.item_data.data
+        include book/_book_item_cover_large

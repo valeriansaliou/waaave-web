@@ -1,0 +1,39 @@
+// Bundle: Search (assets)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+
+@import "controllers/configuration"
+@import "controllers/functions"
+@import "controllers/keyframes"
+
+
+
+// Search Results >> Search Results Info & Pagination
+
+.items-wrapper
+    .search-results-info
+        color: #757575
+        font-size: (12/16) * 1em
+        margin-bottom: 25px
+
+    .items
+        .more-users
+            margin: 20px 0 15px
+
+            .btn
+                float: right
+
+    .search-pagination
+        padding-top: 4px
+
+
+/* For Tablet (L) & Beyond */
+@media screen and (min-width: 1023px)
+    .items-wrapper
+        .search-results-info
+            margin-bottom: 20px

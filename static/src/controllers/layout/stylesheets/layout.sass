@@ -1,0 +1,153 @@
+// Bundle: Layout (controllers)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+
+@import "controllers/configuration"
+@import "controllers/functions"
+
+
+
+// Layout >> Variables
+
+$pathLayout: "controllers/layout/images"
+
+$layoutMobile: sprite-map("#{$pathLayout}/layout_mobile/*.png")
+$layoutDesktop: sprite-map("#{$pathLayout}/layout_desktop/*.png")
+$layoutBoth: sprite-map("#{$pathLayout}/layout_both/*.png")
+
+
+
+// Layout >> Shortcuts
+
+.hide
+	display: none !important
+
+
+.invisible
+	visibility: hidden !important
+
+
+.show
+	display: block !important
+
+
+.show_inline
+	display: inline !important
+
+
+.show_inline_block
+	display: inline-block !important
+
+
+.hide-on-desktop
+	display: block
+
+
+/* For Small Tablet & Beyond */
+@media screen and (min-width: 599px)
+	.hide-on-desktop
+		display: none
+
+
+
+// Layout >> Body
+
+body
+	background-color: #ffffff
+	min-width: 320px
+
+
+.body
+	padding: 0 0 60px
+	background-color: #fafafa
+
+
+
+// Layout >> Shadows
+
+.shadow-light
+	+box-shadow(#eaeaea 0 1px 1px)
+
+
+/* For Tablet (L) & Beyond */
+@media screen and (min-width: 1023px)
+	.shadow-light-if-desktop
+		+box-shadow(#eaeaea 0 1px 1px)
+
+
+
+// Layout >> Headers
+
+@import "layout_header"
+
+
+
+// Layout >> Notifications
+
+@import "layout_notifications"
+
+
+
+// Layout >> Alerts
+
+@import "layout_alert"
+
+
+
+// Layout >> Comment
+
+@import "layout_comment"
+
+
+
+// Layout >> Forms
+
+@import "layout_forms"
+
+
+
+// Layout >> Left Sidebar
+
+@import "layout_sidebar_left"
+
+
+
+// Layout >> Body & Body Central
+
+@import "layout_body"
+@import "layout_body_central"
+
+
+
+// Layout >> Body >> Navigation
+
+@import "layout_navigation"
+
+
+
+// Layout >> Right Sidebar
+
+@import "layout_sidebar_right"
+
+
+
+// Layout >> Footers
+
+@import "layout_footer"
+
+
+
+// Layout >> Components
+
+@import "layout_components"
+
+
+
+// Layout >> Items
+
+@import "layout_items"

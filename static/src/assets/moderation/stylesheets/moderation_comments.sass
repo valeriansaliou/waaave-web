@@ -1,0 +1,96 @@
+// Bundle: Moderation (assets)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+
+@import "controllers/configuration"
+@import "controllers/functions"
+@import "controllers/keyframes"
+
+
+
+// Moderation >> Comment Management >> Comments
+
+.comments
+    .comment
+        .avatar-view
+            float: left
+
+            .avatar-wrapper
+                float: none
+
+            .comment-status
+                margin-top: 12px
+                margin-left: 3px
+
+                span
+                    display: block
+                    margin-top: 4px
+                    font-size: (13/16) * 1em
+                    text-align: center
+
+                .valid
+                    color: $green
+
+                .liked
+                    color: $blue
+
+                .disliked
+                    color: $orange
+
+                .flagged
+                    color: $red
+
+        .author
+            .actions
+                margin-top: 6px
+
+                .view,
+                .c-hide,
+                .c-unhide,
+                .remove
+                    display: inline-block
+
+                .view
+                    color: $blue
+                    margin-right: 10px
+
+                .c-hide, .c-unhide
+                    color: $grey
+                    margin-left: 10px
+                    margin-right: 10px
+
+                .c-unhide
+                    display: none
+
+                .remove
+                    color: $red
+                    margin-left: 10px
+
+        &.comment-hidden
+            blockquote
+                text-decoration: line-through
+
+            .actions
+                .c-hide
+                    display: none
+
+                .c-unhide
+                    display: inline-block
+
+    .comment-pagination
+        padding-top: 40px
+
+
+/* For WideScreen & Beyond */
+@media screen and (min-width: 1200px)
+    .comments
+        padding-bottom: 20px
+
+        .comment
+            margin-right: 10px
+            margin-left: 10px

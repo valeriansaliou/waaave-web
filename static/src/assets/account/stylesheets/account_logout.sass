@@ -1,0 +1,106 @@
+// Bundle: Account (assets)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+
+@import "controllers/configuration"
+@import "controllers/functions"
+@import "controllers/keyframes"
+
+
+
+// Signout >> Variables
+
+$logoutBoth: sprite-map("assets/account/images/account_logout_both/*.png")
+
+
+
+// Signout >> Layout Ajustments
+
+.alerts
+    display: none
+
+
+
+// Signout >> Engagement Box
+
+.signout
+    margin-bottom: 24px
+
+    .signout-wrapper
+        margin: 0 auto
+
+        h1,
+        h2
+            font-size: (18/16) * 1em
+            text-transform: uppercase
+            text-align: center
+            font-family: "OpenSans", sans-serif
+            font-weight: bold
+            color: #606060
+
+        h1
+            margin-bottom: 4px
+
+        h2
+            margin-top: 0
+            margin-bottom: 28px
+
+            .logout-affiliate
+                &.logout-facebook
+                    margin-bottom: -6px
+                    +sprite-background($logoutBoth, 'logo-facebook')
+
+        .logout-suggest
+            width: 280px
+            height: 100px
+            margin: 0 auto
+            border: 1px solid #dddddd
+            background-color: #ffffff
+
+            .logout-logo
+                float: left
+                margin-top: 23px
+                margin-left: 50px
+                +sprite-background-simple($logoutBoth, 'suggest-logo')
+
+            .logout-action
+                float: left
+                margin-left: 10px
+                margin-top: 23px
+
+                .logout-title
+                    display: block
+                    margin-bottom: 5px
+                    font-family: "OpenSans Bold", sans-serif
+                    font-size: (16/16) * 1em
+                    font-weight: bold
+                    color: #3b5998
+
+
+/* For Small Tablet & Beyond */
+@media screen and (min-width: 599px)
+    .signout
+        height: 490px
+        margin-bottom: 0
+        background: url("../images/account_logout_bg/bg-mashup.png") center center no-repeat
+
+        .signout-wrapper
+            width: 450px
+            padding-top: 150px
+
+            .logout-suggest
+                .logout-action
+                    .logout-title
+                        font-size: (12/16) * 1em
+
+
+/* For Mobile (L) (only) */
+@media screen and (max-width: 599px) and (orientation: landscape)
+    .signout
+        margin-top: -8px
+        margin-bottom: 0

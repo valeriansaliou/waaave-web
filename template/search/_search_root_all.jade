@@ -1,0 +1,29 @@
+.search-results-info
+  if tutorials and books and spots and users
+    span
+      | We found {{ tutorials_all|length }} tutorial{{ tutorials_all|pluralize }}, {{ books_all|length }} book{{ books_all|pluralize }}, {{ spots_all|length }} spot{{ spots_all|pluralize }} and {{ users_all|length }} user{{ users_all|pluralize }} that match{{ tutorials_all|pluralize:'es,' }} your query “{{ search_url_params.q }}”.
+  
+  elif tutorials
+    span
+      | We found {{ tutorials_all|length }} tutorial{{ tutorials_all|pluralize }} that match{{ tutorials_all|pluralize:'es,' }} your query “{{ search_url_params.q }}”.
+    
+  elif books
+    span
+      | We found {{ books_all|length }} book{{ books_all|pluralize }} that match{{ books_all|pluralize:'es,' }} your query “{{ search_url_params.q }}”.
+  
+  elif spots
+    span
+      | We found {{ spots_all|length }} spot{{ spots_all|pluralize }} that match{{ spots_all|pluralize:'es,' }} your query “{{ search_url_params.q }}”.
+    
+  elif users
+    span
+      | We found {{ users_all|length }} user{{ users_all|pluralize }} that match{{ users_all|pluralize:'es,' }} your query “{{ search_url_params.q }}”.
+
+  else
+    span We found nothing matching your query “{{ search_url_params.q }}”.
+
+.items
+  include search/_search_users_items
+  include search/_search_tutorials_items
+  include search/_search_books_items
+  include search/_search_spots_items

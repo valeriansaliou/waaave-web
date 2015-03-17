@@ -1,0 +1,42 @@
+- load humanize avatar markup
+
+.item.item-comment
+  | {% avatar_normal comment.data.0.data.author 'complete' %}
+  
+  .heading
+    a(href='{% url "user.views.main" comment.data.0.data.author.username %}')
+      | {{ comment.data.0.data.author.first_name|title }} {{ comment.data.0.data.author.last_name|title }}
+    | left 
+    a(href='{{ comment.meta.item_data.data.url_full }}#comment-{{ comment.data.0.data.id }}')
+      | a comment
+    
+    if comment.data|length > 1
+      | and 
+      a(href='{{ comment.meta.item_data.data.url_full }}')
+        | {{ comment.data|slice:'1:'|length|intcomma }} more
+
+    | on
+    
+    if comment.meta.item_type == 'tutorial'
+      | a Tutorial
+    else
+      if comment.meta.item_type == 'book'
+        | a Book
+      else
+        | something
+
+    span.separator ·
+    span.ago {{ comment.date|naturaltime }}
+  
+  .quote-feature
+    | {% avatar_normal comment.data.0.data.author 'complete' %}
+    
+    blockquote
+      span.quote-arrow
+      | {{ comment.data.0.data.body|markdown_to_text }}
+    
+    if comment.meta.item_data.data.title
+      .author
+        | In 
+        a(href='{{ comment.meta.item_data.data.url_full }}') {{ comment.meta.item_data.data.title }}
+        | .

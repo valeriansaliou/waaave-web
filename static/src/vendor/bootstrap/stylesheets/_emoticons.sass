@@ -1,0 +1,86 @@
+// Bundle: Bootstrap (vendor)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+
+
+
+// Bootstrap Emoticons >> Variables
+
+$emoticonsImages: sprite-map("vendor/bootstrap/images/bootstrap_emoticons/*.png")
+
+
+
+// Bootstrap Emoticons >> Mixins
+
+@mixin sprite-emoticon($name)
+    background-position: sprite-position($emoticonsImages, $name)
+    height: image-height(sprite-file($emoticonsImages, $name))
+    width: image-width(sprite-file($emoticonsImages, $name))
+
+
+
+// Bootstrap Emoticons >> Classes
+
+.emoticon
+    background-image: sprite-url($emoticonsImages)
+    background-repeat: no-repeat
+    display: inline-block
+
+    &.emoticon-blink
+        +sprite-emoticon('emoticon-blink')
+
+    &.emoticon-smiling
+        +sprite-emoticon('emoticon-smiling')
+
+    &.emoticon-laughing
+        +sprite-emoticon('emoticon-laughing')
+
+    &.emoticon-yuck
+        +sprite-emoticon('emoticon-yuck')
+
+    &.emoticon-sad
+        +sprite-emoticon('emoticon-sad')
+
+    &.emoticon-embarrassed
+        +sprite-emoticon('emoticon-embarrassed')
+
+    &.emoticon-slant
+        +sprite-emoticon('emoticon-slant')
+
+    &.emoticon-ambivalent
+        +sprite-emoticon('emoticon-ambivalent')
+
+    &.emoticon-notamused
+        +sprite-emoticon('emoticon-not-amused')
+
+    &.emoticon-crying
+        +sprite-emoticon('emoticon-crying')
+
+    &.emoticon-cool
+        +sprite-emoticon('emoticon-cool')
+
+    &.emoticon-angry
+        +sprite-emoticon('emoticon-angry')
+
+    &.emoticon-naughty
+        +sprite-emoticon('emoticon-naughty')
+
+    &.emoticon-angel
+        +sprite-emoticon('emoticon-angel')
+
+    &.emoticon-nerd
+        +sprite-emoticon('emoticon-nerd')
+
+    &.emoticon-moneymouth
+        +sprite-emoticon('emoticon-money-mouth')
+
+    &.emoticon-thumbsup
+        +sprite-emoticon('emoticon-thumbs-up')
+
+    &.emoticon-thumbsdown
+        +sprite-emoticon('emoticon-thumbs-down')

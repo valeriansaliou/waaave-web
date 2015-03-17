@@ -1,0 +1,35 @@
+extends account/__account
+
+- load staticfiles facebook_btn
+
+block title
+  | Stay Connected with Us
+
+block stylesheets
+  | {{ block.super }}
+  link(rel='stylesheet' href='{% static "assets/account/stylesheets/account_logout.css" %}', type='text/css')
+
+block javascripts
+  | {{ block.super }}
+
+block extra_head
+
+block content
+  #signoutSpace.signout
+    .signout-wrapper
+      h1 See you soon {{ first_name }}!
+      
+      h2
+        | And stay connected with us on 
+        a.logout-affiliate.logout-facebook(href='{{ conf.FACEBOOK_PAGE }}')
+      
+      .logout-suggest.shadow-light.animated.bounceIn
+        .logout-logo
+        
+        .logout-action
+          a.logout-title(href='{{ conf.FACEBOOK_PAGE }}')
+            | Waaave Network
+          
+          | {% facebook_btn_small 'page' %}
+      
+      .clear

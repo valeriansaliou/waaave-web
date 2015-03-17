@@ -1,0 +1,34 @@
+extends company/__company
+
+- load staticfiles
+
+block title
+  | About Us | Company
+
+block stylesheets
+  | {{ block.super }}
+
+block javascripts
+  | {{ block.super }}
+
+block extra_head
+
+block company
+  .about
+    h4
+      | Waaave is a technology company that connects developers.
+    
+    h5
+      | Share your knowledge, learn cool new stuff and get recognized in your expertise domain.
+    
+    p
+      :markdown
+        We envision a world where knowledge is free and shared with others. A world where people who work hard get rewarded for helping others and giving time. A world where **individuals and technology companies are connected** in a deeper way.
+    
+    p
+      :markdown
+        Our mission is to **empower people** and **create connections**. Develop talents and help everyone act to **make the world a better place** through technology.
+    
+    p
+      :markdown
+        **This is Waaave**, a work still in progress. Designed by [Julien Le Coupanec](https://plus.google.com/+JulienLECOUPANEC), [Valérian Saliou](https://plus.google.com/+ValérianSaliou) and [Anthony Peron](https://plus.google.com/111713896973972444872).

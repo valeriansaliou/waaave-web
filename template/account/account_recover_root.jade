@@ -1,0 +1,50 @@
+extends account/__account_recover
+
+block title %}Recover your Waaave password
+
+block emblemize
+  #forgotPassword.cont-forgot-password
+    form#forgotForm.forgot-form(
+      class=('is_invalid' if form.errors or error_notif['has'] else ''),
+      method='post'
+    )
+      | {% csrf_token %}
+      
+      if error_notif.long and error_notif.short
+        .alert.alert-error.login-error.hide-on-mobile
+          span.icon
+          | {{ error_notif.long }}
+        .alert.alert-error.login-error.hide-on-desktop
+          span.icon
+          | {{ error_notif.short }}
+      
+      elif form_success
+        .alert.alert-success.recover-success.hide-on-mobile
+          span.icon
+          | We sent you an email. Check your inbox (also, your spam folder).
+        .alert.alert-success.recover-success.hide-on-desktop
+          span.icon
+          | We sent you an email.
+
+      fieldset.email-fieldset
+        .labels
+          span.question
+            | Forgot your Password?
+          br
+          span.instruction
+            | We'll email you instructions on how to reset your password.
+        
+        | {{ form.username }}
+      
+      button.forgot-submit.btn.btn-primary(
+        type='submit',
+        disabled=(true if form_success else false)
+      )
+        | Submit
+
+      .return
+        | Or 
+        a#returnToSignin(href='{% url "account.views.login_root" %}') Return to Login
+        | .
+
+      .clear

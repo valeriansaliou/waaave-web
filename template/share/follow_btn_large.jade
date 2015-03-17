@@ -1,0 +1,29 @@
+- load humanize
+
+.follow-wrapper
+  form.follow-btn-form(
+    action='{% url "share.views.follow" follow_user_id %}',
+    method='post'
+  )
+    | {% csrf_token %}
+    
+    input(
+      type='hidden',
+      name='follow_state'
+    )
+    
+    button.follow(
+      class=('following' if follow_btn_is_active else ''),
+      type='button',
+      data-user-id='{{ follow_user_id }}',
+      data-tooltip='Please login first',
+      data-tooltip-is-me='This is you!',
+      data-is-me=(true if follow_is_me else false)
+    )
+      i.icon
+      span.text Follow
+    
+    span.follow-arrow
+    
+    span.follow-counter
+      | {{ follow_counter|intcomma }}

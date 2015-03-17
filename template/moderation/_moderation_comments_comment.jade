@@ -1,0 +1,59 @@
+- load avatar
+
+.comment.quote-feature(
+  class=('comment-hidden' if cur_comment['comment'].is_hidden else '')
+)
+  .avatar-view
+    | {% avatar_normal cur_comment.author 'complete' %}
+    
+    .comment-status
+      if cur_comment.status == 'flagged'
+        span.flagged Flagged
+      elif cur_comment.status == 'liked'
+        span.liked Liked
+      elif cur_comment.status == 'disliked'
+        span.disliked Disliked
+      elif cur_comment.status == 'none'
+        span.valid All clear
+
+  blockquote
+    span.quote-arrow
+    | {{ cur_comment.comment.body }}
+  
+  .author
+    a.username(href='{% url "user.views.main" cur_comment.author %}') {{ cur_comment.author.first_name|title }} {{ cur_comment.author.last_name|title }}
+    | , 
+    
+    em {{ cur_comment.author.profile.specialty }}
+    
+    | , in 
+    
+    a(href='{{ cur_comment.from.content.url }}')
+      | {{ cur_comment.from.content.title }}
+    
+    | .
+    
+    .actions
+      form.action-comment-form(
+        action='{% url "comment.views.action" cur_comment.from.type cur_comment.from.id %}',
+        method='post'
+      )
+        | {% csrf_token %}
+
+        input(type='hidden', name='comment_id', value='{{ cur_comment.comment.id }}')
+        input(type='hidden', name='comment_action')
+        
+        a.view(href='{{ cur_comment.from.content.url }}#comment-{{ cur_comment.comment.id }}')
+          | View this comment
+        
+        | -
+
+        a.c-hide(href='#', data-action='hide')
+          | Hide
+        a.c-unhide(href='#', data-action='unhide')
+          | Unhide
+        
+        | -
+
+        a.remove(href='#', data-action='delete', data-tooltip='Remove this comment?')
+          | Remove

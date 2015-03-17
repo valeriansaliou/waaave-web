@@ -1,0 +1,10 @@
+.items-space.search-results-info
+  if books
+    span
+      | We found {{ books_all|length }} book{{ books_all|pluralize }} that match{{ books_all|pluralize:'es,' }} your query “{{ search_url_params.q }}”.
+
+  else
+    span We found no book that matches your query “{{ search_url_params.q }}”.
+
+.items
+  include search/_search_books_items

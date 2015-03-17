@@ -1,0 +1,27 @@
+if has_show_more
+  mixin show_more
+    a.more(href='#')
+      | Show More
+    
+    span.more-loading
+      | Loading More...
+
+  if fetch_following
+    .show-more(data-url='{% url "user.views.main_following_fetch" aut_user.username next_page %}')
+      +show_more
+  
+  elif fetch_followers
+    .show-more(data-url='{% url "user.views.main_followers_fetch" aut_user.username next_page %}')
+      +show_more
+  
+  elif fetch_interests
+    .show-more(data-url='{% url "user.views.main_interests_fetch" aut_user.username next_page %}')
+      +show_more
+  
+  else
+    .show-more
+      +show_more
+
+else
+  .page-end
+    span.waaave-emblem

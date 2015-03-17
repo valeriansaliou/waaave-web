@@ -1,0 +1,87 @@
+// Bundle: Tutorial (assets)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+@import "controllers/functions"
+@import "controllers/keyframes"
+
+
+// Tutorial Items
+
+.items-wrapper
+    .items
+        .item-tutorial,
+        .item-waaave
+            .tutorial
+                .title
+                    clear: left
+                    margin-top: 0
+                    margin-bottom: 1px
+                    font-size: (15/16) * 1em
+
+                .complement
+                    margin: 0 0 6px
+                    font-size: (13/16) * 1em
+                    font-family: "OpenSans", sans-serif
+
+                    .separator
+                        display: inline-block
+                        margin: 0 5px
+                        color: $grey
+
+                    .percent
+                        color: $green
+
+                .details
+                    padding-bottom: 15px
+                    border-bottom: 1px dotted #d0d0d0
+                    font-size: (13/16) * 1em
+
+            &.with-heading
+                .avatar-wrapper
+                    display: block
+
+        .item-tutorial-small
+            margin-bottom: 15px
+
+            .tutorial
+                line-height: 18px
+
+                .title,
+                .complement
+                    font-size: (12/16) * 1em
+
+
+/* For Smartphone (L) & Beyond */
+@media screen and (min-width: 479px)
+    .items-wrapper
+        .items
+            .item-tutorial,
+            .item-waaave
+                .avatar-wrapper
+                    display: block
+
+                .tutorial
+                    margin-left: 100px
+
+                    .title
+                        clear: none
+
+            .item-tutorial-small
+                .tutorial
+                    margin-left: 0
+
+
+/* For Tablet & Beyond */
+@media screen and (min-width: 767px)
+    .items-wrapper
+        .items
+            .item-tutorial-small
+                .tutorial
+                    .title,
+                    .complement
+                        font-size: (12/16) * 1em

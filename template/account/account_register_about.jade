@@ -1,0 +1,52 @@
+extends account/__account_register_steps
+
+- load staticfiles avatar
+
+block title
+  | About You
+
+block register_step_heading
+  .bubble-step-3
+    | {% avatar_large request.user 'complete' %}
+    
+    .bubble
+      span.arrow
+      | We do our best to provide you the most powerful place to highlight your skills with businesses and other waaavers.
+
+block register_step_form
+  .step-3
+    | {{ form.specialty }}
+    
+    for error in form.specialty.errors
+      span.input-tooltip-error.specialty-error
+        | {{ error|escape }}
+
+    .alert
+      span.icon
+      | Are you a Ruby Developer? A Web Designer?
+    
+    | {{ form.company }}
+    
+    .freelancing
+      | {{ form.freelancing }}
+      
+      label.freelancing-cb(for='freelancing-cb')
+        span.img
+      
+      label.label-check(for='freelancing-cb')
+        | I am available for freelancing.
+    
+    .hiring
+      | {{ form.hiring }}
+      
+      label.hiring-cb(for='hiring-cb')
+        span.img
+      
+      label.label-check(for='hiring-cb')
+        | I am available for hiring messages.
+    
+    .navigation
+      button#thirdStepNextButton.next-step.btn.btn-primary(name='register_next', value='1')
+        | Next Step
+      button#thirdStepPreviousButton.previous-step.btn(name='register_prev', value='1')
+        | Previous Step

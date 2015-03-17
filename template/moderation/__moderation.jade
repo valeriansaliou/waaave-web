@@ -1,0 +1,29 @@
+extends __base
+
+- load staticfiles
+
+block javascripts
+  | {{ block.super }}
+  script(src='{% static "assets/moderation/javascripts/moderation_tutorial_actions.js" %}', type='text/javascript')
+
+block content
+  .grid
+    .g-c10.main-zone-c10
+      .main-zone.shadow-light-if-desktop
+        include _sidebar_left
+        
+        .body-central-wrapper
+          include moderation/_moderation_navigation
+          
+          .body-central.moderation
+            block moderation
+
+        .clear
+
+    .g-c2.sidebar-right-c2
+      include _sidebar_right
+
+    .clear
+
+block footer
+  include _footer_big

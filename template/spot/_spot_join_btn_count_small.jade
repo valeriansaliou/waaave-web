@@ -1,0 +1,20 @@
+- load humanize
+
+.join-wrapper
+  form.join-btn-form(action='{% url "spot.views.join" join_spot.slug %}', method='post')
+    | {% csrf_token %}
+    
+    input(type='hidden', name='join_state')
+    
+    button.join.join-small(
+      class=('joined' if join_btn_is_active else ''),
+      type='button',
+      data-spot-id='{{ join_spot.id }}',
+      data-tooltip='Please login first'
+    )
+      i.icon
+      span.text Join
+    
+    span.join-arrow.join-arrow-small
+    span.join-counter.join-counter-small
+      | {{ join_counter|intcomma }}

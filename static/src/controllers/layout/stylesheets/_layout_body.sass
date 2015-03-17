@@ -1,0 +1,83 @@
+// Bundle: Layout (controllers)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+// Layout >> Body
+
+.body
+    padding: 0 0 40px
+
+
+/* For Small Tablet (L) & Beyond */
+@media screen and (min-width: 799px)
+    .body
+        padding-top: 30px
+
+
+/* For Tablet (L) & Beyond */
+@media screen and (min-width: 1023px)
+    .body
+        padding-bottom: 45px
+
+
+/* For WideScreen & Beyond */
+@media screen and (min-width: 1200px)
+    .body
+        padding-top: 94px
+        padding-bottom: 45px
+
+
+
+// Layout >> Main Zone
+
+/* For Tablet & Beyond */
+@media screen and (min-width: 767px)
+    .main-zone
+        border: 1px solid #d0d0d0
+        border-bottom-color: #cacaca
+        background-color: #f5f5f5
+
+/* For Small Tablet (L) & Beyond */
+@media screen and (min-width: 799px)
+    .main-zone-c10
+        width: 100%
+
+        .main-zone
+            background: #f5f5f5 url('../images/layout_sidebar_left/left-sidebar-bg.png') repeat-y left
+
+/* For WideScreen & Beyond */
+@media screen and (min-width: 1200px)
+    .main-zone-c10
+        width: 83.33%
+        padding-right: 12px
+
+
+
+// Layout >> 404 & 500 Errors
+
+.error-page
+    text-align: center
+
+    .error
+        margin-top: 50px
+        color: $black
+        font-family: "OpenSans Extrabold", sans-serif
+        font-size: (90/16) * 1em
+        text-transform: uppercase
+
+    .info
+        color: #909090
+        font-family: "OpenSans Bold", sans-serif
+        font-size: (24/16) * 1em
+        text-transform: uppercase
+
+    .btn-return
+        display: inline-block
+        margin-top: 50px
+        margin-bottom: 180px
+        padding: 16px 25px
+        font-size: (15/16) * 1em
+        text-transform: uppercase

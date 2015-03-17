@@ -1,0 +1,22 @@
+- load navigation
+
+.sub-navigation
+  nav.tabs
+    ul
+      li.tab(
+        class='{% active "^/explore/spots/(\d+/)?$" %}'
+      )
+        a(href='{% url "explore.views.spots" %}')
+          | Newest
+      
+      li.tab(
+        class='{% active "^/explore/spots/popular/(\d+/)?$" %}'
+      )
+        a(href='{% url "explore.views.spots_popular" %}')
+          | Popular
+      
+      li.tab(
+        class='{% active "^/explore/spots/alphabetical/(\d+/)?$" %}'
+      )
+        a(href='{% url "explore.views.spots_alphabetical" %}')
+          | Alphabetical

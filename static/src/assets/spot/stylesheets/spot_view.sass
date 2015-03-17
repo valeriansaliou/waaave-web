@@ -1,0 +1,68 @@
+// Bundle: Spot (assets)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+
+@import "controllers/configuration"
+@import "controllers/functions"
+@import "controllers/keyframes"
+
+
+
+// Spot >> View
+
+.spot-view
+    .spot-header
+        .items-wrapper .items .item-spot .spot
+            .details
+                .view-spot
+                    display: none
+
+            .complement
+                padding-bottom: 0
+                border-bottom: none
+
+                .nb-tutorials,
+                .nb-books
+                    display: none
+
+                .write-tutorial,
+                .suggest-book
+                    display: inline-block
+
+    .spot-navigation
+        margin: 25px 0
+        padding: 6px 0
+        border-top: 1px dotted #d0d0d0
+        border-bottom: 1px dotted #d0d0d0
+        font-size: (12/16) * 1em
+
+        .filter
+            margin-right: 5px
+            color: #757575
+
+            &.active,
+            &:hover
+                color: $blue
+                text-decoration: none
+
+
+/* For Smartphone (L) & Beyond */
+@media screen and (min-width: 479px)
+    .spot-view
+        .spot-navigation
+            .filter
+                margin-right: 12px
+
+
+/* For Tablet & Beyond */
+@media screen and (min-width: 767px)
+    .spot-view
+        .spot-navigation
+            margin-left: -42px
+            margin-right: -40px
+            padding-left: 42px

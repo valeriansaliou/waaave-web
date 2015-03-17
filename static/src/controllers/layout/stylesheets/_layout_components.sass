@@ -1,0 +1,350 @@
+// Bundle: Layout (controllers)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+// Layout Components >> Variables
+
+$layoutDesktop: sprite-map("controllers/layout/images/layout_desktop/*.png")
+$tutorialBoth: sprite-map("assets/tutorial/images/tutorial_view_both/*.png")
+
+
+
+// `Layout Components >> Share Buttons
+
+.share-buttons
+    &.share-buttons-small
+        margin: 15px 0 30px
+
+        .waaave-small,
+        .facebook-small-like,
+        .twitter-small-tweet,
+        .google-small-plus,
+        .stumble-small-share
+            display: block
+            float: left
+
+        .facebook-small-like
+            margin-top: -2px
+            margin-left: 15px
+
+        .twitter-small-tweet
+            clear: left
+            margin-top: 10px
+
+        .google-small-plus
+            width: 75px
+            margin-top: 10px
+            margin-left: 10px
+
+        .stumble-small-share
+            display: none
+            margin-top: 5px
+
+    &.share-buttons-large
+        margin: 30px 0
+
+        .waaave-countbox,
+        .facebook-countbox,
+        .twitter-countbox,
+        .google-countbox,
+        .stumble-countbox
+            display: block
+            float: left
+            margin-top: 9px
+
+        .facebook-countbox
+            margin-top: 9px
+            margin-left: 15px
+
+        .twitter-countbox
+            margin-top: 8px
+            margin-left: 15px
+
+        .google-countbox
+            margin-top: 10px
+            margin-left: 15px
+
+        .stumble-countbox
+            display: none
+            margin-top: 10px
+            margin-left: 15px
+
+
+/* For Smartphone (L) & Beyond */
+@media screen and (min-width: 479px)
+    .share-buttons
+        &.share-buttons-small
+            clear: left
+
+            .twitter-small-tweet
+                clear: none
+                margin-top: 5px
+                margin-left: 15px
+
+            .google-small-plus
+                margin-top: 5px
+
+        &.share-buttons-large
+            float: left
+
+            .facebook-countbox,
+            .twitter-countbox,
+            .google-countbox
+                margin-left: 15px
+
+
+/* For Small Tablet & Beyond */
+@media screen and (min-width: 599px)
+    .share-buttons
+        &.share-buttons-small
+            margin-top: 150px
+            margin-bottom: 40px
+
+            .stumble-small-share
+                display: block
+
+        &.share-buttons-large
+            .stumble-countbox
+                display: block
+
+
+/* For Tablet & Beyond */
+@media screen and (min-width: 767px)
+    .share-buttons
+        &.share-buttons-small
+            clear: none
+            margin-top: 15px
+
+            .share-buttons-clear
+                clear: none
+
+
+
+// `Layout Components >> Social Buttons
+
+.twitter-connect,
+.twitter-connect-small,
+.facebook-connect,
+.facebook-connect-small
+    cursor: pointer
+
+
+.twitter-connect
+    +sprite-background($layoutBoth, 'twitter-connect-default')
+
+    &:hover
+        +sprite-background($layoutBoth, 'twitter-connect-default-hover')
+
+    &:active
+        +sprite-background($layoutBoth, 'twitter-connect-default-focus')
+
+
+.twitter-connect-small
+    +sprite-background($layoutBoth, 'twitter-connect-small')
+
+    &:hover
+        +sprite-background($layoutBoth, 'twitter-connect-small-hover')
+
+    &:active
+        +sprite-background($layoutBoth, 'twitter-connect-small-focus')
+
+
+.facebook-connect
+    +sprite-background($layoutBoth, 'facebook-connect-default')
+
+    &:hover
+        +sprite-background($layoutBoth, 'facebook-connect-default-hover')
+
+    &:active
+        +sprite-background($layoutBoth, 'facebook-connect-default-focus')
+
+
+.facebook-connect-small
+    +sprite-background($layoutBoth, 'facebook-connect-small')
+
+    &:hover
+        +sprite-background($layoutBoth, 'facebook-connect-small-hover')
+
+    &:active
+        +sprite-background($layoutBoth, 'facebook-connect-small-focus')
+
+
+
+// Layout Components >> Show More & Page End
+
+.show-more
+    border: 1px solid #c5c5c5
+    +filter-gradient(#ffffff, #f0f0f0)
+    background: #f0f0f0
+    +background(linear-gradient(top, #ffffff, #f0f0f0))
+    cursor: pointer
+    text-align: center
+    +text-shadow(#FFF 1px 1px 1px)
+
+    .more,
+    .more-loading
+        display: block
+        margin: 7px 0
+        font-size: (12/16) * 1em
+
+    .more-loading
+        display: none
+
+    &.loading
+        .more
+            display: none
+
+        .more-loading
+            display: block
+
+
+.page-end
+    position: relative
+    top: -1px
+    height: 18px
+    margin-top: 25px
+    margin-bottom: -10px
+    border-top: 1px solid #e5e5e5
+
+    .waaave-emblem
+        position: absolute
+        left: 50%
+        top: -10px
+        margin-left: -19px // horizontal alignment: -0.5 * width
+        +sprite-background($layoutDesktop, 'waaave-page-end')
+
+
+/* For Small Tablet & Beyond */
+@media screen and (min-width: 599px)
+    .show-more
+        .more
+            font-size: (13/16) * 1em
+
+
+
+// Layout Components >> Relevance
+
+.relevance
+    margin-top: 5px
+
+    .key
+        font-family: "OpenSans Extrabold", sans-serif
+        font-size: (13/16) * 1em
+
+    .indicator
+        .bar
+            width: 100px
+            height: 3px
+            margin-top: 5px
+            background-color: $red
+
+            .green-bar
+                float: right
+                height: 3px
+                background-color: $green
+
+            .green-nc
+                width: 100px
+
+            .green-w0
+                width: 0
+
+            @for $i from 1 through 100
+                .green-w#{$i}
+                    width: #{$i}px
+
+        .percent
+            float: left
+            margin-top: -12px
+            margin-left: 110px
+            color: $green
+            font-family: "OpenSans Semibold", sans-serif
+            font-size: (12/16) * 1em
+
+        .numbers
+            width: 100px
+
+            .irrelevant,
+            .relevant
+                display: block
+                margin-top: -4px
+                font-size: (10/16) * 1em
+
+            .irrelevant
+                float: left
+                color: $red
+
+            .relevant
+                float: right
+                color: $green
+
+    .buttons
+        margin: 12px 0 20px
+
+        .btn-relevant,
+        .btn-irrelevant
+            display: block
+            float: left
+            padding: 7px 8px
+            font-size: (12/16) * 1em
+
+            &.active
+                +box-shadow(none)
+                +text-shadow(#48592C 1px 1px 1px)
+
+        .btn-relevant
+            margin-left: 8px
+
+            .relevant-plus,
+            .relevant-text
+                display: block
+                float: left
+
+            .relevant-plus
+                margin-right: 6px
+                margin-top: 1px
+                +sprite-background($tutorialBoth, 'tutorial-relevant-icon-plus')
+
+            &.active
+                .relevant-plus
+                    +sprite-background($tutorialBoth, 'tutorial-relevant-icon-plus-active')
+
+        .btn-irrelevant
+            padding-bottom: 6px
+
+            .irrelevant-minus
+                margin-top: 1px
+                +sprite-background($tutorialBoth, 'tutorial-relevant-icon-minus')
+
+            &.active
+                .irrelevant-minus
+                    +sprite-background($tutorialBoth, 'tutorial-relevant-icon-minus-active')
+
+
+.relevance,
+.join-btn-form,
+.waaave-btn-form,
+.follow-btn-form
+    &.loading-mask
+        +opacity(0.6)
+
+
+
+// Layout Components >> Statistics
+
+.statistics
+    margin-bottom: 10px
+    color: $grey
+    font-size: (13/16) * 1em
+
+    .value
+        font-family: "OpenSans Bold", sans-serif
+
+
+
+// Layout Components >> User Profiles
+
+@import "assets/user/stylesheets/_user_profiles"

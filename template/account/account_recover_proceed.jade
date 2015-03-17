@@ -1,0 +1,42 @@
+extends account/__account_recover
+
+block title
+  | Recover Your Password
+
+block emblemize
+  #forgotPassword.cont-forgot-password
+    form#forgotForm.forgot-form(
+      class=('is_invalid' if form.errors or error_notif['has'] else ''),
+      method='post'
+    )
+      | {% csrf_token %}
+      
+      if error_notif.long and error_notif.short
+        .alert.alert-error.login-error.hide-on-mobile
+          span.icon
+          | {{ error_notif.long }}
+        
+        .alert.alert-error.login-error.hide-on-desktop
+          span.icon
+          | {{ error_notif.short }}
+
+      fieldset.email-fieldset
+        .labels
+          span.question You have been logged in. Now change your password.
+          br
+          span.instruction Enter a new password. This time, be smart enough to remember it!
+        
+        | {{ form.password }}
+        | {{ form.password_confirm }}
+      
+      button.forgot-submit.btn.btn-primary(
+        disabled=(true if form_success else false),
+        type='submit'
+      )
+        | Change Password
+      
+      .return
+        a#returnToSignin(href='{% url "home.views.root" %}') Not this time
+        | .
+      
+      .clear

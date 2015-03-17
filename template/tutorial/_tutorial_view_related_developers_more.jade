@@ -1,0 +1,13 @@
+if has_show_more
+  .show-more(
+    data-url='{% url "tutorial.views.view_related_developers_fetch" tut_category tut_slug next_page %}'
+  )
+    a.more(href='#')
+      | Show More
+    
+    span.more-loading
+      | Loading More...
+
+else
+  .page-end
+    span.waaave-emblem

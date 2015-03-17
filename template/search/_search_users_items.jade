@@ -1,0 +1,17 @@
+if search_url_params.t == 'all'
+  for user in users|slice:':1'
+    - with aut_user=user.user aut_profile=user.user.profile tutorial=user.tutorial body_truncate=265
+      include user/_user_view_item
+
+  if users|length > 1
+    .more-users
+      a(href='{% url "search.views.root" %}?t=users&q={{ search_url_params.q }}')
+        button.btn.btn-tiny.btn-primary
+          | More Users
+      
+      .clear
+
+else
+  for user in users
+    - with aut_user=user.user aut_profile=user.user.profile tutorial=user.tutorial body_truncate=265
+      include user/_user_view_item

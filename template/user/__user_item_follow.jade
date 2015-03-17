@@ -1,0 +1,45 @@
+- load humanize avatar follow_btn
+
+.item.item-follow
+  | {% avatar_normal follow.meta.following_user 'complete' %}
+  
+  block heading
+
+  .user-card
+    .avatar-mobile
+      | {% avatar_small follow.data.0.data.followed_user 'complete' %}
+    
+    .hide-on-mobile
+      if follow.data.2.data.followed_user
+        | {% avatar_normal follow.data.2.data.followed_user 'complete' %}
+      
+      if follow.data.1.data.followed_user
+        | {% avatar_normal follow.data.1.data.followed_user 'complete' %}
+      
+      if follow.data.0.data.followed_user
+        | {% avatar_normal follow.data.0.data.followed_user 'complete' %}
+    
+    .user
+      .username
+        a(href='{% url "user.views.main" follow.data.0.data.followed_user.username %}')
+          | {{ follow.data.0.data.followed_user.first_name|title }} {{ follow.data.0.data.followed_user.last_name|title }}
+      
+      .complement
+        if follow.data.0.data.followed_user.profile.specialty
+          span.specialty
+            | {{ follow.data.0.data.followed_user.profile.specialty|title }}
+        
+        if follow.data.0.data.followed_user.profile.city and follow.data.0.data.followed_user.profile.country
+          span.from
+            span.pin-icon
+            | {{ follow.data.0.data.followed_user.profile.city|title }}, {{ follow.data.0.data.followed_user.profile.country|title }}.
+      
+      .details
+        | {{ follow.data.0.data.followed_stats.followers|intcomma }} Follower{{ follow.data.0.data.followed_stats.followers|pluralize }}
+        span.separator ·
+        | {{ follow.data.0.data.followed_stats.tutorials|intcomma }} Tutorial{{ follow.data.0.data.followed_stats.tutorials|pluralize }}.
+      
+      if request.user.is_authenticated
+        | {% follow_btn_large follow.data.0.data.followed_user %}
+  
+  block footing

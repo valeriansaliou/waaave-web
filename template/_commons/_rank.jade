@@ -1,0 +1,6 @@
+if user
+  .waaave-rank(
+    class=('one-digit' if user.profile.rank < 10 else '')
+  )
+    a(href='{% url "user.views.main" user.username %}')
+      | {{ user.profile.rank }}

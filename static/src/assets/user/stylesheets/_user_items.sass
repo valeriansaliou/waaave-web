@@ -1,0 +1,179 @@
+// Bundle: User (assets)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+@import "controllers/functions"
+@import "controllers/keyframes"
+
+
+
+// Timeline >> Variables
+
+$timelineBoth: sprite-map("assets/timeline/images/timeline_root_both/*.png")
+$layoutDesktop: sprite-map("controllers/layout/images/layout_desktop/*.png")
+
+
+
+// Timeline >> Timeline >> Items
+
+.items-wrapper
+    .items
+        .item-follow
+            .user-card
+                clear: left
+                margin-top: 15px
+                padding-left: 20px
+                padding-bottom: 15px
+                border-bottom: 1px dotted #d0d0d0
+
+                .user
+                    padding-left: 70px
+
+                    .username
+                        a
+                            font-size: (14/16) * 1em
+                            font-family: "OpenSans Semibold", sans-serif
+
+                    .complement
+                        font-size: (13/16) * 1em
+                        font-family: "OpenSans Semibold", sans-serif
+
+                        .from
+                            display: block
+
+                            .pin-icon
+                                margin-right: 3px
+                                +sprite-background($timelineBoth, 'icon-pin')
+
+                    .details
+                        margin: 0 0 10px
+                        color: $grey
+                        font-size: (12/16) * 1em
+
+                        .separator
+                            display: inline-block
+                            margin: 0 6px
+
+        .item-user
+            border-bottom: 1px dotted #d0d0d0
+
+            .user-profile-small
+                margin: 0
+
+                .content
+                    padding-bottom: 15px
+
+            .tutorial
+                display: none
+
+
+/* For Smartphone (L) & Beyond */
+@media screen and (min-width: 479px)
+    .items-wrapper
+        .items
+            .item-follow
+                .user-card
+                    clear: none
+                    margin-left: 100px
+                    padding-left: 2px
+
+                    .user
+                        .complement
+                            .from
+                                display: inline-block
+
+                                .pin-icon
+                                    margin-left: 3px
+
+            .item-user
+                border-bottom: none
+
+                .tutorial
+                    display: block
+                    min-height: 122px
+                    margin-left: 100px
+                    border-bottom: 1px dotted #d0d0d0
+
+                    .title,
+                    .complement,
+                    .details
+                        margin-left: 150px
+                        font-size: (13/16) * 1em
+
+                    .title
+                        margin-top: 0
+                        margin-bottom: 3px
+                        font-size: (14/16) * 1em
+
+                    .complement
+                        display: none
+                        margin-bottom: 6px
+
+                        .separator
+                            display: inline-block
+                            margin: 0 6px
+                            color: $grey
+
+                        .percent
+                            color: $green
+
+                    .details
+                        margin-bottom: 15px
+
+
+/* For Small Tablet & Beyond */
+@media screen and (min-width: 599px)
+    .items-wrapper
+        .items
+            .item-follow
+                .avatar-mobile
+                    display: none
+
+                .avatar-wrapper
+                    margin-right: 10px
+
+                    &:last-of-type
+                        margin-right: 15px
+
+                .user-card,
+                .tutorial-card,
+                .book-card
+                    clear: none
+                    margin-top: 12px
+
+                    .tutorial,
+                    .book
+                        .title
+                            margin-left: 20px
+
+                        .complement
+                            margin-left: 20px
+
+                        .details
+                            margin-left: 110px
+
+            .item-user
+                .tutorial
+                    .title,
+                    .complement,
+                    .details
+                        margin-left: 160px
+
+                    .complement
+                        display: block
+
+
+/* For Tablet & Beyond */
+@media screen and (min-width: 767px)
+    .items-wrapper
+        .items
+            .item-user
+                .tutorial
+                    .title,
+                    .complement,
+                    .details
+                        margin-left: 175px

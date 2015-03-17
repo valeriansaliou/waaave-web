@@ -1,0 +1,27 @@
+extends user/__user_item_follow
+
+- load humanize
+
+block heading
+  .heading
+    a(href='{% url "user.views.main" follow.meta.following_user.username %}')
+      | {{ follow.meta.following_user.first_name|title }} {{ follow.meta.following_user.last_name|title }}
+    | is now following 
+    
+    a(href='{% url "user.views.main" follow.data.0.data.followed_user.username %}')
+      | {{ follow.data.0.data.followed_user.first_name|title }} {{ follow.data.0.data.followed_user.last_name|title }}
+    
+    if follow.data|length > 1
+      | and 
+      
+      a(
+        href='{% url "user.views.main_following" follow.meta.following_user.username %}',
+        title='{% for item in follow.data|slice:"1:" %}{% if forloop.counter > 1 %}, {% endif %}{{ item.data.followed_user.first_name }} {{ item.data.followed_user.last_name }}{% endfor %}'
+      )
+        | {{ follow.data|slice:'1:'|length|intcomma }} other{{ follow.data|slice:'1:'|length|pluralize }}
+      
+    span.separator ·
+    span.ago
+      | {{ follow.date|naturaltime }}
+
+block footing

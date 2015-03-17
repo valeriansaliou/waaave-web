@@ -1,0 +1,24 @@
+extends __base
+
+block content
+  .grid
+    .g-c10.main-zone-c10
+      .main-zone.shadow-light-if-desktop
+        include _sidebar_left
+        
+        .body-central-wrapper
+          include account/_account_settings_navigation
+          
+          .body-central.settings
+            block settings
+
+        .clear
+
+    .g-c2.sidebar-right-c2
+      include _sidebar_right
+
+    .clear
+
+
+block footer
+  include _footer_big

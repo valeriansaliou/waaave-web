@@ -1,0 +1,37 @@
+extends user/__user
+
+- load staticfiles
+
+block title
+  | {{ aut_user.first_name }} {{ aut_user.last_name }} | Interests
+
+block stylesheets
+  | {{ block.super }}
+  link(rel='stylesheet' href='{% static "assets/user/stylesheets/user_followers_following_interests.css" %}', type='text/css')
+
+block extra_head
+
+block user
+  .left-summary-desktop
+    include user/_user_view_summary
+
+  include user/_user_navigation
+  
+  .user-space
+    include user/_user_view_summary_small
+   
+    .clear.user-clear
+    
+    .timeline.timeline-user
+      .items-wrapper
+        if user_interests
+          - with user_items=user_interests
+            include user/_user_main_interests_items
+          
+          - with fetch_interests=1
+            include user/_user_main_followers_following_interests_more
+        
+        else
+          .alert
+            span.icon
+            | {{ aut_user.first_name|title }} {{ aut_user.last_name|title }} has not joined any spot (yet).

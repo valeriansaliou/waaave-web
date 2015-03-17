@@ -1,0 +1,28 @@
+- load navigation
+
+.navigation.user-navigation
+  nav.tabs
+    ul
+      li.tab(
+        class='{% active "^/user/[^\/]+/$" %}'
+      )
+        a(href='{% url "user.views.main" aut_user.username %}')
+          | Activity
+      
+      li.tab(
+        class='{% active "^/user/[^\/]+/following/$" %}'
+      )
+        a(href='{% url "user.views.main_following" aut_user.username %}')
+          | Following
+      
+      li.tab(
+        class='{% active "^/user/[^\/]+/followers/$" %}'
+      )
+        a(href='{% url "user.views.main_followers" aut_user.username %}')
+          | Followers
+      
+      li.tab(
+        class='{% active "^/user/[^\/]+/interests/$" %}'
+      )
+        a(href='{% url "user.views.main_interests" aut_user.username %}')
+          | Interests

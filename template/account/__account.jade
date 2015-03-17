@@ -1,0 +1,17 @@
+extends __base
+
+- load staticfiles
+
+block javascripts
+  | {{ block.super }}
+  script(src='{% static "assets/account/javascripts/account.js" %}', type='text/javascript')
+
+block content
+  .grid
+    .g-c6.g-s3
+      block account
+    
+    .clear
+
+block footer
+  include _footer_small

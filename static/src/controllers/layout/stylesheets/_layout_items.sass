@@ -1,0 +1,103 @@
+// Bundle: Layout (controllers)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+@import "controllers/functions"
+@import "controllers/keyframes"
+
+
+
+// Timeline >> Variables
+
+$timelineBoth: sprite-map("assets/timeline/images/timeline_root_both/*.png")
+$layoutDesktop: sprite-map("controllers/layout/images/layout_desktop/*.png")
+
+
+
+// Items > Common Style
+
+.items-wrapper
+    .items
+        .item
+            margin-bottom: 15px
+
+            .avatar-wrapper
+                float: left
+                margin-right: 15px
+                margin-bottom: 12px
+
+            .heading
+                margin-bottom: 12px
+                margin-left: 90px
+                color: $black
+                font-size: (14/16) * 1em
+                font-family: "OpenSans Semibold", sans-serif
+
+                .separator
+                    display: inline-block
+                    margin: 0 5px
+                    color: $grey
+
+                .ago,
+                .label-new
+                    color: $grey
+                    font-size: (12/14) * 1em
+                    font-family: "OpenSans", sans-serif
+
+                .label-new
+                    margin-left: 8px
+                    color: $red
+
+
+/* For Smartphone (L) & Beyond */
+@media screen and (min-width: 479px)
+    .items-wrapper
+        .items
+            .item
+                .heading
+                    margin-left: 100px
+                    margin-bottom: 1px
+
+
+
+// Items > Show More & Page End
+
+/* For Smartphone (L) & Beyond */
+@media screen and (min-width: 479px)
+    .show-more,
+    .page-end
+        margin-left: 100px
+
+
+
+// Items > Tutorial
+
+@import "assets/tutorial/stylesheets/_tutorial_items"
+
+
+
+// Items > Book
+
+@import "assets/book/stylesheets/_book_items"
+
+
+
+// Items > User
+
+@import "assets/user/stylesheets/_user_items"
+
+
+
+// Items > Spot
+
+@import "assets/spot/stylesheets/_spot_items"
+
+
+
+// Items > Comment
+
+@import "assets/comment/stylesheets/_comment_items"

@@ -1,0 +1,61 @@
+.alert-block.alert-desktop.hide-on-mobile
+  .grid
+    .g-c12.no-margin.no-min-height
+      if alert
+        if alert == 'recover_done_now'
+          .alert-singular.not-user-confirmed
+            .alert.alert-success
+              span.icon
+              | Your password has been successfully changed. Glad to see you back, {{ user.first_name|default:"friend" }}.
+        
+        if alert == 'confirm_pending'
+          .alert-singular.not-user-confirmed
+            .alert
+              span.icon
+              | Your account is not yet confirmed. Please check your email inbox and confirm it. 
+              a(href='{% url "account.views.confirm_retry" request.path|urlencode %}') Resend confirmation link
+              | .
+          
+        if alert == 'confirm_pending_resent'
+          .alert-singular.user-confirm-resent
+            .alert.alert-success
+              span.icon
+              | Confirmation link has been sent to your email address. Check your inbox, including your spam folder. 
+              a(href='{% url "account.views.confirm_retry" request.path|urlencode %}') Send again?
+        
+        if alert == 'confirm_done_now'
+          .alert-singular.user-confirmed-now
+            .alert.alert-success
+              span.icon
+              | Your email address has been successfully confirmed. Yay!
+          
+        if alert == 'comment_posted_now'
+          .alert-singular.comment-posted-now
+            .alert.alert-success
+              span.icon
+              | Your comment has been successfully posted. 
+
+              if alert_data
+                a(href='{{ alert_data }}') View it now
+                | .
+        
+        if alert == 'comment_posted_error'
+          .alert-singular.comment-posted-error
+            .alert.alert-error
+              span.icon
+              | We could not post your comment. Please try again now that your are logged in.
+          
+        if alert == 'user_register_invite'
+          .alert-singular.user-register-invite
+            .alert
+              span.icon
+              | Waaave is a sharing network gathering developers and designers, all driven by self-learning and entrepreneurship. 
+              a(href='{% url "account.views.register_root" %}') Activate your profile
+              | .
+
+      .alert-singular.async-load-error
+        .alert.alert-error
+          span.icon
+          | Woops! It seems that we are unable to load the page you requested at the moment. Try again later.
+  
+    .clear

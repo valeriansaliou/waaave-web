@@ -1,0 +1,10 @@
+extends __email
+
+block content_title
+  | {{ full_name }}
+
+block content_desc
+  | Contact reason: {{ reason }}
+
+block content_meta
+  | {{ message|linebreaksbr }}

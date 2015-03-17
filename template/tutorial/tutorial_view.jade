@@ -1,0 +1,39 @@
+extends tutorial/__tutorial
+
+- load staticfiles bbcode comment hitcount_tags
+
+block title
+  | {{ tut_meta.title }} | {{ tut_tag|capfirst }}
+
+block stylesheets
+  | {{ block.super }}
+  link(rel='stylesheet' href='{% static "assets/tutorial/stylesheets/tutorial_view.css" %}', type='text/css')
+
+block javascripts
+  | {{ block.super }}
+
+block extra_head
+
+block tutorial
+  .left-summary-desktop
+    include tutorial/_tutorial_view_summary
+
+  include tutorial/_tutorial_navigation
+  
+  .tutorial-space
+    .tutorial-header
+      include tutorial/_tutorial_view_header
+
+    .tutorial-content
+      | {{ tut_content.body|bbcode }}
+
+    .tutorial-footer
+      include tutorial/_tutorial_view_footer
+
+    .tutorial-comments
+      | {% comment item_type item_id %}
+
+  script(type='text/javascript').
+    $(document).ready(function() {
+      {% get_hit_count_javascript for tut_meta %}
+    });

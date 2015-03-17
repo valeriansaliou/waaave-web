@@ -1,0 +1,29 @@
+extends __base
+
+- load staticfiles
+
+block stylesheets
+  | {{ block.super }}
+  link(rel='stylesheet' href='{% static "assets/timeline/stylesheets/timeline.css" %}', type='text/css')
+
+block content
+  .grid
+    .g-c10.main-zone-c10
+      .main-zone.shadow-light-if-desktop
+        include _sidebar_left
+
+        .body-central-wrapper
+          include timeline/_timeline_navigation
+
+          .body-central.timeline
+            block timeline
+
+        .clear
+
+    .g-c2.sidebar-right-c2
+      include _sidebar_right
+
+    .clear
+
+block footer
+  include _footer_big

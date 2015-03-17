@@ -1,0 +1,14 @@
+- load staticfiles follow_btn
+
+#sidebarRight.sidebar-right.hide-on-mobile
+  .heading
+    | Network Suggestions
+
+  //- include _sidebar_right_books
+
+  //- if sidebar_right.context.variant = 1
+  include _sidebar_right_waaavers
+  //- if sidebar_right.context.variant = 2
+    include _sidebar_right_spots
+
+  include _sidebar_right_tutorials

@@ -1,0 +1,28 @@
+- load navigation
+
+.sub-navigation
+  nav.tabs
+    ul
+      li.tab(
+        class='{% active "^/explore/tutorials/yours/(\d+/)?$" %}'
+      )
+        a(href='{% url "explore.views.tutorials_yours" %}')
+          | Your Tutorials
+      
+      li.tab(
+        class='{% active "^/explore/tutorials/(\d+/)?$" %}'
+      )
+        a(href='{% url "explore.views.tutorials" %}')
+          | Newest
+      
+      li.tab(
+        class='{% active "^/explore/tutorials/popular/(\d+/)?$" %}'
+      )
+        a(href='{% url "explore.views.tutorials_popular" %}')
+          | Popular
+      
+      li.tab(
+        class='{% active "^/explore/tutorials/alphabetical/(\d+/)?$" %}'
+      )
+        a(href='{% url "explore.views.tutorials_alphabetical" %}')
+          | Alphabetical

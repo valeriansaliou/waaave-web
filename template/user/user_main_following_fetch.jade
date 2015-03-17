@@ -1,0 +1,8 @@
+.page_content(data-type='following')
+  - with user_items=user_following
+    include user/_user_main_followers_following_items
+  
+  .clear
+  
+  - with fetch_following=1
+    include user/_user_main_followers_following_interests_more

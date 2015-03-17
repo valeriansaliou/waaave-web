@@ -1,0 +1,33 @@
+form.search-engine-form(action='/search/', method='get')
+  #resultType.result-type
+    | {{ search_active.value }}
+  
+  #typeBox.type-box
+    ul
+      li.active(data-type='{{ search_active.id }}')
+        | {{ search_active.value }}
+      
+      for search_type_id, search_type_value in search_types.items
+        li(data-type='{{ search_type_id }}')
+          | {{ search_type_value }}
+
+  input#typeInput(
+    type='hidden',
+    name='t',
+    value='{{ search_active.id }}'
+  )
+  
+  .search-engine-container
+    input.search-engine(
+      type='text',
+      name='q',
+      autocomplete='off',
+      placeholder='Search for your favorite topics and developers',
+      value=('{{ search_query }}' if search_query else '')
+    )
+    
+    #suggestPane.suggest-pane(
+      data-action='{% url "search.views.suggest" %}'
+    )
+  
+  .clear

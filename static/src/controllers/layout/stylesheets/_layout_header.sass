@@ -1,0 +1,733 @@
+// Bundle: Layout (controllers)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass/css3"
+
+
+
+// Layout >> Emblemize Variables
+
+$emblemizeBoth: sprite-map("assets/account/images/account_emblemize_both/*.png")
+
+
+
+// Layout >> Headers
+
+.bluelines-container
+    height: 2px
+    background: #dbe0de
+
+    .bluelines
+        position: relative
+        height: 100%
+        border-top: 1px solid #00a7f8
+        border-bottom: 1px solid #225b9d
+        +box-shadow(0 0 0 0)
+        +transition-property(box-shadow)
+        +transition-delay(350ms)
+
+
+.header-mobile,
+.header-desktop
+    .search-box
+        .search-input
+            width: 100%
+            margin-bottom: 0
+            padding: 16px 25px 16px 50px
+            border-top: none
+            background: #ffffff url('../images/layout_mobile/icon-search-mini.png') 20px 50% no-repeat
+            color: #757575
+            font-size: (13/16) * 1em
+
+            &:focus
+                outline: 1px solid transparent
+
+    .logo
+        position: relative
+
+        .logo-env
+            position: absolute
+            left: 0
+            right: 0
+            bottom: 0
+            margin-bottom: 6px
+            padding-left: 45px
+            text-align: right
+            font-size: (11/16) * 1em
+            line-height: 1em
+
+
+.header-mobile
+    .header
+        height: 60px
+        border-bottom: 1px solid $borderColor
+        background-color: #ffffff
+        text-align: center
+
+        .search
+            float: left
+            padding: 20px 22px 11px 20px
+            border-right: 1px solid $borderColor
+            cursor: pointer
+            +no-highlighting()
+
+            &:hover
+                background-color: #f5f5f5
+
+            .search-img
+                +sprite-background($layoutMobile, 'icon-search')
+
+        .logo
+            display: inline-block
+            margin-left: -5px
+
+            .logo-img
+                margin: 12px auto 0
+                +sprite-background($layoutBoth, 'logo')
+
+            .logo-env
+                margin-bottom: 4px
+                text-align: center
+
+        .nav
+            float: right
+            margin-top: 12px
+
+            .nav-btn
+                margin-right: 20px
+                padding: 11px 12px 7px 11px
+                border: 1px solid #cccccc
+                +border-radius(6px)
+                +filter-gradient(#ffffff, #f1f1f1)
+                background: #f1f1f1
+                +background(linear-gradient(top, #ffffff, #f1f1f1))
+                cursor: pointer
+
+                &:hover
+                    border: 1px solid #bbbbbb
+                    +filter-gradient(#eeeeee, #eeeeee)
+                    background: #eeeeee
+                    +background(linear-gradient(top, #eeeeee, #eeeeee))
+
+                &:active
+                    +box-shadow(#cccccc 0 3px 8px inset)
+
+                .nav-img
+                    +sprite-background($layoutMobile, 'icon-nav')
+
+    .alert-mobile
+        margin-top: -1px
+        font-size: (13/16) * 1em
+
+
+.header-desktop
+    .header
+        .quick-sign
+            display: none
+
+
+/* For Small Tablet & Beyond */
+@media screen and (min-width: 599px)
+    .header-mobile
+        display: none
+
+    .header-desktop
+        .header
+            height: 63px
+            border-bottom: 1px solid #c8c8c8
+            background-color: #ffffff
+            +box-shadow(0 1px 3px #eeeeee)
+
+            .g-c12
+                margin-bottom: 0
+
+            .logo
+                float: left
+
+                .logo-img
+                    margin: 13px auto 0
+                    +sprite-background($layoutBoth, 'logo')
+
+            .search-engine-wrapper
+                display: none
+
+            .search-tablet
+                float: right
+                margin: 0 -20px 0 15px
+                padding: 20px 22px 11px 20px
+                border-left: 1px solid $borderColor
+                cursor: pointer
+
+                &:hover
+                    background-color: #F5F5F5
+
+                .search-img
+                    +sprite-background($layoutMobile, 'icon-search')
+
+            .shortcuts
+                .writing-shortcut,
+                .notifications,
+                .notifications-deploy
+                    position: absolute
+                    float: none
+                    top: 14px
+                    +no-highlighting()
+
+                .writing-shortcut,
+                .notifications
+                    min-width: 38px
+                    height: 36px
+                    border: solid 1px #bbb
+                    +border-radius(3px)
+                    +filter-gradient(#ffffff, #f5f5f5)
+                    background: #f5f5f5
+                    +background(linear-gradient(bottom, #f5f5f5, #ffffff))
+                    color: $grey
+                    font-family: "OpenSans Semibold", sans-serif
+                    cursor: pointer
+
+                    &:hover
+                        +filter-gradient(#eeeeee, #eaeaea)
+                        background-color: #eeeeee
+                        +background(linear-gradient(bottom, #eaeaea, #eeeeee))
+                        color: $black
+
+                .writing-shortcut
+                    right: 153px
+
+                    a
+                        display: block
+                        padding: 0 10px 5px
+
+                    &:active
+                        +box-shadow(#cccccc 0 3px 8px inset)
+
+                    .plus-icon
+                        margin-top: 10px
+                        margin-left: 1px
+                        +sprite-background($layoutBoth, 'header-icon-plus')
+
+                .notifications
+                    right: 100px
+                    padding: 2px 8px
+                    text-align: center
+                    +text-shadow(#ffffff 1px 1px 1px)
+
+                    &.active
+                        border-color: #a41616
+                        +filter-gradient(#d9453f, #ce423c)
+                        background: #d9453f
+                        +background(linear-gradient(bottom, #ce423c, #d9453f))
+                        +text-shadow(#8C3030 1px 1px 1px)
+                        color: #ffffff
+
+                        &:hover
+                            border-color: #000000
+                            +filter-gradient(#353535, #353535)
+                            background: #353535
+                            +background(linear-gradient(top, #353535, #353535))
+                            +box-shadow(none)
+
+                    .number
+                        display: inline-block
+                        font-size: (18/16) * 1em
+
+                .notifications-deploy
+                    display: none
+                    z-index: 1000
+                    top: 72px
+                    right: 90px
+                    width: 300px
+                    border: 1px solid #d0d0d0
+                    background-color: #ffffff
+                    +box-shadow(0 3px 5px rgba(204,204,204,.75))
+
+                    .arrow
+                        float: left
+                        margin: -10px 0 0 262px
+                        +sprite-background-simple($layoutBoth, 'writing-deploy-arrow')
+
+                    .settings
+                        padding: 5px 14px 5px 16px
+                        border-bottom: 1px solid #d0d0d0
+                        color: $grey
+                        font-family: "OpenSans Semibold", sans-serif
+                        font-size: (11/16) * 1em
+
+                        .settings-label
+                            float: left
+                            color: $black
+
+                    .notification-box
+                        max-height: 370px
+                        overflow: scroll
+
+                        .notification-items .notification:last-child
+                            border-bottom: none
+
+                        .notification-loading,
+                        .notification-void
+                            display: none
+                            margin: 14px 0 18px 0
+                            text-align: center
+                            font-size: (12/16) * 1em
+
+                        &.loading
+                            .notification-loading
+                                display: block
+
+                            .notification-items
+                                display: none
+
+                        &.empty
+                            .notification-void
+                                display: block
+
+                            .notification-items
+                                display: none
+
+                    .more-notifications
+                        display: none
+                        border-top: 1px solid #d0d0d0
+                        text-align: center
+                        font-size: (12/16) * 1em
+
+                        .more
+                            display: inline-block
+                            margin: 7px 0
+                            cursor: pointer
+
+                .user-profile-header
+                    display: none
+
+            .embossed-bar
+                position: absolute
+                top: 61px
+                width: 100%
+                height: 3px
+                background-color: #f3f3f3
+
+
+/* For Tablet & Beyond */
+@media screen and (min-width: 767px)
+    .header-desktop
+        .header
+            .search-tablet
+                padding: 20px 26px 11px 24px
+
+
+/* For Tablet (L) & Beyond */
+@media screen and (min-width: 1023px)
+    .header-mobile,
+    .header-desktop
+        .search-box
+            display: none
+
+    .header-desktop
+        .header
+            height: 65px
+
+            .search-engine-wrapper
+                display: block
+                float: left
+
+                .search-engine-form
+                    margin-top: 8px
+                    margin-left: 2px
+
+                    .result-type
+                        float: left
+                        margin: 2px 0 0 21px
+                        padding: 12px 35px 10px 22px
+                        background: #ffffff url('../images/layout_both/icon-search-caret-and-cutline.png') 100% 10px no-repeat
+                        font-size: (13/16) * 1em
+                        font-family: "OpenSans Extrabold"
+                        text-transform: uppercase
+                        cursor: pointer
+                        +no-highlighting()
+
+                    .type-box
+                        display: none
+                        position: absolute
+                        z-index: 10
+                        float: left
+                        width: 128px
+                        margin: 1px 0 0 18px
+                        padding: 12px 0 10px
+                        background-color: #ffffff
+                        border: 1px solid #bbbbbb
+                        font-family: "OpenSans Extrabold"
+                        text-transform: uppercase
+                        +no-highlighting()
+
+                        &.active
+                            border: 1px solid #bbbbbb
+
+                        ul
+                            list-style: none
+                            margin: 0
+                            padding-left: 0
+
+                            li
+                                margin-bottom: 4px
+                                padding-left: 24px
+                                font-size: (13/14) * 1em
+                                cursor: pointer
+
+                                &:hover
+                                    color: #757575
+
+                    .search-engine-container
+                        display: inline-block
+                        position: relative
+
+                        .search-engine
+                            float: left
+                            font-size: (14/16) * 1em
+                            width: 350px
+                            margin-top: 2px
+                            margin-bottom: 0
+                            padding-left: 12px
+                            padding-right: 10px
+                            border: none
+
+                            +input-placeholder
+                                color: $grey
+
+                            &:focus
+                                outline: 1px solid transparent
+
+                        .suggest-pane
+                            display: none
+                            position: absolute
+                            z-index: 1000
+                            top: 100%
+                            width: 100%
+                            margin: 12px 0 0 -1px
+                            background-color: #ffffff
+                            +box-shadow(0 1px 3px #efefef)
+                            border: 1px solid #c8c8c8
+                            border-top: none
+
+                            .items-wrapper .items
+                                margin-top: -3px
+
+                                .item
+                                    margin-bottom: 0
+                                    border-bottom: 1px dotted #d0d0d0
+                                    +text-shadow(#ffffff 1px 1px 1px)
+
+                                    .avatar-wrapper
+                                        margin: 6px 0 0 20px
+
+                                    .link
+                                        display: block
+                                        padding: 10px 20px 8px 88px
+                                        background-color: #ffffff
+
+                                        &:hover,
+                                        &.selected
+                                            text-decoration: none
+                                            background-color: #f3f3f3
+
+                                .item-tutorial,
+                                .item-book,
+                                .item-spot
+                                    .tutorial,
+                                    .book,
+                                    .spot
+                                        margin-left: 0
+
+                                        .title
+                                            margin-bottom: 0
+                                            font-family: "OpenSans Semibold", sans-serif
+                                            font-size: (12/16) * 1em
+                                            line-height: 16px
+
+                                        .complement
+                                            margin-bottom: 0
+                                            padding-bottom: 0
+                                            color: $grey
+                                            border-bottom: none
+                                            font-size: (11/16) * 1em
+
+                                            .separator
+                                                margin: 0 4px
+
+                                .item-book
+                                    .cover
+                                        margin: 8px 0 0 24px
+                                        width: auto
+                                        max-height: 60px
+
+                                .item-user
+                                    .user-card
+                                        .username
+                                            font-family: "OpenSans Semibold", sans-serif
+                                            font-size: (12/16) * 1em
+                                            line-height: 16px
+
+                                        .details,
+                                        .following
+                                            color: $grey
+                                            font-size: (11/16) * 1em
+
+                                        .following
+                                            margin-top: -1px
+
+                                            .number
+                                                font-family: "OpenSans Semibold", sans-serif
+
+                            .suggest-footer
+                                padding: 4px 20px
+                                font-size: (11/16) * 1em
+
+                                .more-results
+                                    float: left
+                                    font-weight: bold
+
+                                .shown-results
+                                    float: right
+                                    color: #757575
+
+            .search-tablet
+                display: none
+
+            .quick-sign
+                display: block
+                float: right
+                margin-top: 14px
+
+                .qs-form
+                    display: none
+
+                    .qs-email,
+                    .qs-password
+                        float: left
+                        border: none
+                        width: 130px
+                        margin-bottom: 0
+                        padding: 9px 22px 0
+                        color: $black
+
+                        +input-placeholder
+                            color: $black
+
+                    .qs-email
+                        width: 110px
+                        margin-right: 4px
+                        font-size: (13/16) * 1em
+                        font-family: "OpenSans Extrabold"
+                        text-align: right
+
+                        +input-placeholder
+                            text-transform: uppercase
+
+                    .qs-password
+                        margin-right: 3px
+
+                    .qs-cutline
+                        float: left
+                        display: block
+                        width: 1px
+                        height: 24px
+                        margin-top: 6px
+                        background-color: #909090
+
+                    .qs-submit
+                        margin-top: 4px
+
+                .qs-buttons
+                    .qs-btn
+                        float: left
+                        margin-top: 2px
+
+                    .qs-facebook, .qs-twitter
+                        margin-right: 5px
+
+            .shortcuts
+                .writing-shortcut
+                    right: 283px
+
+                .notifications
+                    right: 230px
+
+                .notifications-deploy
+                    right: 220px
+
+                .user-profile-header
+                    display: block
+                    position: absolute
+                    top: 14px
+                    right: 20px
+
+                    .waaave-rank,
+                    .user-picture,
+                    .user-settings
+                        float: left
+
+                    .waaave-rank
+                        border: 1px solid #32528a
+                        border-right: none
+                        +border-top-left-radius(3px)
+                        +border-bottom-left-radius(3px)
+                        +filter-gradient(#5a9cd6, #416cba)
+                        background: #5a9cd6
+                        +background(linear-gradient(top, #5a9cd6, #416cba))
+                        color: #ffffff
+                        +box-shadow(#a2ccf0 0 1px 0 0 inset)
+                        +text-shadow(#213A6D 1px 1px 1px)
+
+                        a
+                            display: inline-block
+                            padding: 2px 10px
+                            color: #ffffff
+                            font-size: (18/16) * 1em
+
+                            &:hover
+                                text-decoration: none
+
+                        &.one-digit
+                            a
+                                padding-right: 15px
+                                padding-left: 15px
+
+                    .profile
+                        float: left
+
+                        .user-picture
+                            img
+                                width: 36px
+                                height: 36px
+
+                        .user-settings
+                            padding: 7px 0 0 11px
+                            border: 1px solid #d0d0d0
+                            border-left: none
+                            +filter-gradient(#fefefe, #f5f5f5)
+                            background: #f5f5f5
+                            +background(linear-gradient(bottom, #f5f5f5, #fefefe))
+                            color: #757575
+                            font-family: "OpenSans Bold", sans-serif
+                            font-size: (12/16) * 1em
+                            cursor: pointer
+
+                            a
+                                color: #757575
+                                &:hover
+                                    color: $black
+                                    text-decoration: none
+
+                            .welcome
+                                float: left
+                                +no-highlighting()
+
+                            .arrow-deploy
+                                float: right
+                                margin: -7px 0 0 6px
+                                padding: 7px 7px 7px
+
+                                .arrow
+                                    +sprite-background($layoutBoth, 'user-settings-icon-arrow')
+
+                                &:hover,
+                                &.active
+                                    margin-left: 5px
+                                    margin-bottom: -1px
+                                    border-bottom: 1px solid #ffffff
+                                    border-left: 1px solid #d0d0d0
+                                    background-color: #ffffff
+
+                        .user-settings-deploy
+                            display: none
+                            clear: left
+                            position: relative
+                            z-index: 1000
+                            margin-bottom: -200px
+                            padding: 10px 0
+                            border: 1px solid #d0d0d0
+                            border-top: none
+                            background-color: #ffffff
+                            font-size: (12/16) * 1em
+                            +box-shadow(0 1px 3px #f0f0f0)
+
+                            a:hover
+                                text-decoration: none
+
+                            .item
+                                display: block
+                                border-top: 1px dotted #ffffff
+                                border-bottom: 1px dotted #ffffff
+                                padding: 3px 5px 3px 12px
+                                color: #757575
+                                text-align: left
+
+                                &:hover
+                                    border-color: #d0d0d0
+                                    background-color: #f5f5f5
+                                    color: $grey
+
+                                    .caret
+                                        .caret-img
+                                            +sprite-background($layoutDesktop, 'navigation-deploy-caret-right-black')
+
+                                .caret
+                                    float: right
+                                    margin-right: 4px
+
+                                    .caret-img
+                                        +sprite-background($layoutDesktop, 'navigation-deploy-caret-right')
+
+                            .item-logout
+                                font-family: "OpenSans Semibold", sans-serif
+
+            .embossed-bar
+                top: 63px
+
+
+/* For WideScreen & Beyond */
+@media screen and (min-width: 1200px)
+    .headers
+        position: fixed
+        width: 100%
+        z-index: 10000
+
+    .header-c12
+        padding-right: 0
+
+    .header-desktop
+        .header
+            .search-engine-wrapper
+                .search-engine-form
+                    .search-engine-container
+                        .search-engine
+                            width: 375px
+                            padding-left: 20px
+
+            .quick-sign
+                .qs-form
+                    .qs-email
+                        width: 200px
+
+                    .qs-password
+                        width: 150px
+                        margin-right: 10px
+
+            .shortcuts
+                .writing-shortcut
+                    right: 265px
+
+                .notifications,
+                .notifications-deploy
+                    right: 212px
+
+                .notifications-deploy
+                    .arrow
+                        margin-left: 274px
+
+                .user-profile-header
+                    right: 0

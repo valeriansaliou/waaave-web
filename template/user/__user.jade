@@ -1,0 +1,22 @@
+extends __base
+
+block content
+  .grid
+    .g-c10.main-zone-c10
+      .main-zone.shadow-light-if-desktop
+        - with type='mini'
+          include _sidebar_left
+        
+        .body-central-wrapper.body-central-wrapper-mini
+          .body-central.user
+            block user
+
+        .clear
+
+    .g-c2.sidebar-right-c2
+      include _sidebar_right
+
+    .clear
+
+block footer
+  include _footer_big

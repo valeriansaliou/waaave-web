@@ -1,0 +1,114 @@
+// Bundle: Bootstrap (vendor)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+// Tag-it >> Default Theme (edited)
+
+.tagit
+    padding: 1px 5px
+    overflow: auto
+    margin-left: inherit /* usually we don't want the regular ul margins. */
+    margin-right: inherit
+
+    li
+        display: block
+        float: left
+        margin: 2px 5px 2px 0
+
+    .tagit-choice-read-only
+        padding: .2em .5em .2em .5em
+
+    .tagit-choice-editable
+        padding: .2em 18px .2em .5em
+
+    .tagit-new
+        padding: .25em 4px .25em 0
+
+    /* Used for some custom themes that don't need image icons */
+    .tagit-choice
+        position: relative
+        line-height: inherit
+
+        .tagit-close
+            cursor: pointer
+            position: absolute
+            right: .1em
+            top: 50%
+            margin-top: -8px
+            line-height: 17px
+
+            .text-icon
+                display: none
+
+        .tagit-label
+            cursor: pointer
+            text-decoration: none
+
+        input
+            display: block
+            float: left
+            margin: 2px 5px 2px 0
+
+    input[type="text"]
+        -moz-box-shadow: none
+        -webkit-box-shadow: none
+        box-shadow: none
+        border: none
+        margin: 0
+        padding: 0
+        width: inherit
+        background-color: inherit
+
+
+
+// Tag-it >> Custom Theme
+
+.tagit
+    margin: 0
+    padding: 0 0 0 45px
+    +border-radius(0)
+
+    .tagit-choice-read-only,
+    .tagit-choice,
+    .tagit-new
+        margin: 5px 0 5px 5px
+        padding-top: 0
+        padding-bottom: 0
+
+    .tagit-choice
+        height: 33px
+        margin-top: 6px
+        padding: 5px 10px 0 10px
+        background-color: #b2bf63
+        border: solid 1px #bbb
+        +border-radius(0)
+        +background-image(linear-gradient(top, #f0f0f0, #fff))
+
+        .tagit-label
+            display: block
+            color: $grey
+            font-family: "OpenSans", sans-serif
+            font-size: 12px /* let in pixels */
+            font-weight: normal
+            +text-shadow(#ffffff 1px 1px 1px)
+
+        &.remove
+            border-color: $red
+
+            .tagit-label
+                color: $red
+
+        .tagit-close
+            display: none
+
+    .tagit-new
+        input[type="text"]
+            width: 130px
+            height: 35px
+            background: none
+            color: $grey
+            font-family: "OpenSans", sans-serif
+            font-size: 14px /* let in pixels */

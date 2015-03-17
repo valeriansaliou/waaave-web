@@ -1,0 +1,44 @@
+extends account/__account_register_steps
+
+- load staticfiles avatar
+
+block title
+  | Your Profile
+
+block register_step_heading
+  .bubble-step-2
+    | {% avatar_large request.user 'complete' %}
+    
+    .bubble
+      span.arrow
+      | Because it is always nice to know a little more about the waaavers, tell us who you are. :)
+
+block register_step_form
+  .step-2
+    | {{ form.first_name }}
+    
+    for error in form.first_name.errors
+      span.input-tooltip-error.first_name-error
+        | {{ error|escape }}
+
+    | {{ form.last_name }}
+    
+    for error in form.last_name.errors
+      span.input-tooltip-error.last_name-error
+        | {{ error|escape }}
+
+    | {{ form.city }}
+    
+    for error in form.city.errors
+      span.input-tooltip-error.city-error
+        | {{ error|escape }}
+
+    | {{ form.country }}
+    
+    for error in form.country.errors
+      span.input-tooltip-error.country-error
+        | {{ error|escape }}
+
+    .navigation
+      button#secondStepNextButton.next-step.btn.btn-primary(name='register_next', value='1')
+        | Next Step

@@ -1,0 +1,8 @@
+.page_content(data-type='interests')
+  - with user_items=user_interests
+    include user/_user_main_interests_items
+  
+  .clear
+  
+  - with fetch_interests=1
+    include user/_user_main_followers_following_interests_more

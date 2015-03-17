@@ -1,0 +1,4 @@
+.items
+  for user_item in user_items
+    - with aut_user=user_item.user aut_profile=user_item.user.profile tutorial=user_item.tutorial body_truncate=145
+      include user/_user_view_item

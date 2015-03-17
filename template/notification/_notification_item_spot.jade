@@ -1,0 +1,39 @@
+- load humanize spot_picture
+
+.notification.notification-spot(
+  class=('new' if spot['new'] else ''),
+  data-type='spot',
+  data-id='{{ spot.id }}',
+  data-url-read='{% url "notification.views.read" "single" "spot" spot.id %}'
+)
+  | {% spot_picture_small spot.data.spot %}
+  
+  .content
+    span.notification-label
+      if spot.data.item_type == 'tutorial'
+        | A new tutorial entitled 
+        a(href='{% url "tutorial.views.view" spot.data.item_data.url.tag spot.data.item_data.url.slug %}')
+          | {{ spot.data.item_data.title }}
+      
+      elif spot.data.item_type == 'book'
+        | A new book entitled 
+        a(href='{% url "book.views.main" spot.data.item_data.url.author spot.data.item_data.url.slug %}')
+          | {{ spot.data.item_data.title }}
+      
+      else
+        | A new content 
+
+      | has been added to 
+      a(href='{% url "spot.views.view_root" spot.data.spot.slug %}') {{ spot.data.spot.name }}
+      | .
+    
+    span.elapsed
+      | {{ spot.date|naturaltime }}
+    
+    if spot.new
+      span.label-new
+        | New
+
+    .clear
+  
+  a.close(href='#')

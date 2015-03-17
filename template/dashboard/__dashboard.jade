@@ -1,0 +1,38 @@
+extends __base
+
+- load staticfiles
+
+block javascripts
+  | {{ block.super }}
+  script(src='{% static "assets/dashboard/javascripts/dashboard_tutorial_actions.js" %}', type='text/javascript')
+
+block content
+  .grid
+    .g-c10.main-zone-c10
+      .main-zone.shadow-light-if-desktop
+        if '/dashboard/tutorials/' in request.path
+          include _sidebar_left
+        else
+          - with type='mini'
+            include _sidebar_left
+        
+        .body-central-wrapper(
+          class=('body-central-wrapper-mini' if '/dashboard/tutorial/new/' in request.path or '/dashboard/tutorial/edit/' in request.path else '')
+        )
+          include dashboard/_dashboard_navigation
+          
+          .body-central.dashboard
+            block dashboard
+
+        .clear
+
+    .g-c2.sidebar-right-c2
+      if '/dashboard/tutorial/new/' in request.path or '/dashboard/tutorial/edit/' in request.path
+        include dashboard/_dashboard_tutorial_edit_sidebar_right
+      else
+        include _sidebar_right
+
+    .clear
+
+block footer
+  include _footer_big

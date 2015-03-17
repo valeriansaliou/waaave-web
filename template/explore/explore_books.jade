@@ -1,0 +1,32 @@
+extends explore/__explore
+
+- load staticfiles page
+
+block title
+  | Explore the Books
+
+block stylesheets
+  | {{ block.super }}
+
+block javascripts
+  | {{ block.super }}
+
+block extra_head
+
+block navigation
+  include explore/_explore_navigation
+  include explore/_explore_books_navigation
+
+block explore
+  if items
+    .items-wrapper
+      .items.items-books-only
+        for book in items
+          include explore/_explore_books_item
+
+  else
+    .alert
+      span.icon
+      | There is not book. Seems like everything vanished from there!
+
+  | {% pagination explore_view explore_page explore_page_total %}

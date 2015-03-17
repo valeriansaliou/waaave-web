@@ -1,0 +1,25 @@
+.items
+  for item in timeline
+    if item.type == 'tutorial'
+      - with tutorial=item
+        include tutorial/_tutorial_item_with_heading
+    
+    elif item.type == 'spot'
+      - with spot=item
+        include spot/_spot_item_with_heading
+    
+    elif item.type == 'book'
+      - with book=item
+        include book/_book_item_with_heading
+    
+    elif item.type == 'follow'
+      - with follow=item
+        include user/_user_item_follow_with_heading
+    
+    elif item.type == 'waaave'
+      - with waaave=item
+        include share/_share_item_waaave
+    
+    elif item.type == 'comment'
+      - with comment=item
+        include comment/_comment_item

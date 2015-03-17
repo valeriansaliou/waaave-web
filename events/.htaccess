@@ -1,0 +1,11 @@
+##########################################
+### SOCKET.IO DEVELOPMENT APACHE RULES ###
+##########################################
+
+# DOMAIN  : events.waaave.com.dev
+# WARNING : not to be used on both staging and production!
+
+
+# Socket.IO development server
+RewriteEngine   On
+RewriteRule     ^(.*)$   http://localhost:8001/$1   [P,L]

@@ -1,0 +1,43 @@
+if page_total > 1
+  .pagination.comment-pagination
+    ul
+      .left-paging
+        if page_current != 1
+          li.pagination-nav
+            a(href='{% url page_route page_previous %}{{ url_params }}') Previous
+
+        for cur_page in pagination_left
+          li(
+            class=('active' if cur_page == page_current else '')
+          )
+            a(href='{% url page_route cur_page %}{{ url_params }}')
+              | {{ cur_page }}
+
+        if has_more_hidden
+          li.delimitor ...
+      
+      .center-paging
+        for cur_page in pagination_center
+          li(
+            class=('active' if cur_page == page_current else '')
+          )
+            a(href='{% url page_route cur_page %}{{ url_params }}')
+              | {{ cur_page }}
+
+      .right-paging
+        if has_more_hidden
+          li.delimitor ...
+
+        for cur_page in pagination_right
+          li(
+            class=('active' if cur_page == page_current else '')
+          )
+            a(href='{% url page_route cur_page %}{{ url_params }}')
+              | {{ cur_page }}
+
+        if page_current != page_total
+          li.pagination-nav
+            a(href='{% url page_route page_next %}{{ url_params }}')
+              | Next
+
+      .clear

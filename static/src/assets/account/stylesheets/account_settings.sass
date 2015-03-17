@@ -1,0 +1,257 @@
+// Bundle: Account (assets)
+// Project: Waaave
+// Authors: Julien Le Coupanec, Valerian Saliou
+// Copyright: 2014, Hakuma Holdings Ltd.
+
+
+
+@import "compass"
+
+@import "controllers/configuration"
+@import "controllers/functions"
+@import "controllers/keyframes"
+
+
+
+// Settings >> Variables
+
+$settingsBoth: sprite-map("assets/account/images/account_settings_both/*.png")
+
+
+
+// Settings >> Common
+
+.settings
+    .alert
+        margin-bottom: 24px
+
+
+
+// Settings >> Main Area
+
+/* For Tablet & Beyond */
+@media screen and (min-width: 767px)
+    .password-area
+        .main-form
+            .main-form-item
+                .input-main
+                    width: 350px
+
+
+/* For WideScreen & Beyond */
+@media screen and (min-width: 1200px)
+    .settings-form,
+    .notification-center
+        float: left
+
+
+
+// Settings >> Complements
+
+.complements
+    .heading
+        margin: 25px 0 20px
+        color: $grey
+        font-size: (14/16) * 1em
+        text-align: left
+
+    .gravatar
+        text-align: center
+
+        .avatar-wrapper
+            display: inline-block
+
+        .btn-dropdown
+            margin-top: 12px
+
+            .item-active
+                display: none
+
+            .gravatar
+                color: #000000
+
+            .facebook
+                color: #425fad
+
+            .twitter
+                color: #04b8eb
+
+            .google-oauth2
+                color: #c94232
+
+            .btn-update-picture
+                width: 156px
+                padding: 9px 10px 9px 14px
+                font-size: (12/16) * 1em
+                text-align: left
+
+            .dropdown-toggle
+                padding: 7px 9px 8px
+
+                .loader
+                    display: none
+
+                &.loading
+                    padding: 9px 7px
+
+                    .loader
+                        display: block
+
+                    .caret
+                        display: none
+
+            .dropdown-menu
+                width: 187px
+                padding: 6px 0
+                font-size: (12/16) * 1em
+                text-align: left
+
+                li a
+                    padding-left: 14px
+
+    .social-networks
+        .social-info
+            display: block
+            margin-bottom: 25px
+            color: #909090
+            font-size: (12/16) * 1em
+
+        .twitter-button,
+        .facebook-button,
+        .google-oauth2-button
+            background-color: #ffffff
+            border: 0 none
+            cursor: pointer
+
+        .twitter-button
+            +sprite-background($settingsBoth, 'twitter_button_unactivated')
+
+            &:hover
+                +sprite-background($settingsBoth, 'twitter_button_unactivated_hover')
+
+            &:active
+                +sprite-background($settingsBoth, 'twitter_button_unactivated_focus')
+
+            &.active
+                +sprite-background($settingsBoth, 'twitter_button_activated')
+
+                &:hover
+                    +sprite-background($settingsBoth, 'twitter_button_activated_hover')
+
+                &:active
+                    +sprite-background($settingsBoth, 'twitter_button_activated_focus')
+
+        .facebook-button
+            margin-top: 5px
+            +sprite-background($settingsBoth, 'facebook_button_unactivated')
+
+            &:hover
+                +sprite-background($settingsBoth, 'facebook_button_unactivated_hover')
+
+            &:active
+                +sprite-background($settingsBoth, 'facebook_button_unactivated_focus')
+
+            &.active
+                +sprite-background($settingsBoth, 'facebook_button_activated')
+
+                &:hover
+                    +sprite-background($settingsBoth, 'facebook_button_activated_hover')
+
+                &:active
+                    +sprite-background($settingsBoth, 'facebook_button_activated_focus')
+
+        .google-oauth2-button
+            margin-top: 5px
+            margin-bottom: 20px
+            +sprite-background($settingsBoth, 'google_button_unactivated')
+
+            &:hover
+                +sprite-background($settingsBoth, 'google_button_unactivated_hover')
+
+            &:active
+                +sprite-background($settingsBoth, 'google_button_unactivated_focus')
+
+            &.active
+                +sprite-background($settingsBoth, 'google_button_activated')
+
+                &:hover
+                    +sprite-background($settingsBoth, 'google_button_activated_hover')
+
+                &:active
+                    +sprite-background($settingsBoth, 'google_button_activated_focus')
+
+
+/* For Smartphone (L) & Beyond */
+@media screen and (min-width: 479px)
+    .complements
+        .social-networks
+            .twitter-button
+                margin-right: 15px
+                margin-bottom: 20px
+
+
+/* For Small Tablet & Beyond */
+@media screen and (min-width: 599px)
+    .complements
+        .social-networks
+            .social-info
+                font-size: (13/16) * 1em
+
+
+/* For WideScreen & Beyond */
+@media screen and (min-width: 1200px)
+    .complements
+        float: right
+        width: 225px
+        margin-top: -25px
+        padding: 22px 0 35px 38px
+
+        .gravatar,
+        .social-networks
+            .heading
+                font-size: (13/16) * 1em
+                font-family: "Opensans Bold", sans-serif
+
+        .gravatar
+            .heading
+                margin-top: 0
+
+        .social-networks
+            .heading
+                margin-bottom: 14px
+
+            .social-info
+                margin-bottom: 20px
+
+            .twitter-button
+                margin-right: 0
+                margin-bottom: 0
+
+
+
+// Settings >> Saving Bar
+
+.saving-bar
+    .btn
+        float: right
+        margin-top: 25px
+
+
+/* For Tablet & Beyond */
+@media screen and (min-width: 767px)
+    .body-central
+        position: relative
+        padding-bottom: 125px
+
+    .saving-bar
+        position: absolute
+        left: 0
+        right: 0
+        bottom: 0
+        padding: 22px 0 30px
+        border-top: 1px solid #d0d0d0
+        background-color: #f8f8f8
+
+        .btn
+            margin-top: 0
+            margin-right: 40px
