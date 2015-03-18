@@ -2,7 +2,7 @@
 Bundle: Layout (controllers)
 Project: Waaave
 Authors: Julien Le Coupanec, Valerian Saliou
-Copyright: 2014, Hakuma Holdings Ltd.
+Copyright: 2014, Waaave
 ###
 
 __ = window

@@ -8,6 +8,6 @@ You need Django to execute those.
 
 Installation instructions can be found there:
 
-* **Production**: https://code.hakuma.holdings/waaave/waaave-web/wikis/environments-production
-* **Testing**: https://code.hakuma.holdings/waaave/waaave-web/wikis/environments-testing
-* **Development**: https://code.hakuma.holdings/waaave/waaave-web/wikis/environments-development
+* **Production**: https://github.com/waaave/waaave-web/wikis/environments-production
+* **Testing**: https://github.com/waaave/waaave-web/wikis/environments-testing
+* **Development**: https://github.com/waaave/waaave-web/wikis/environments-development
