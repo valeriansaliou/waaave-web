@@ -8,4 +8,4 @@ before_script:
   - 'gem install compass'
   - 'npm install -g grunt-cli'
   - mysql -e 'create database waaave_testing;'
-script: "./tools/test.py"
+script: "./tools/test.py testing"
