@@ -63,11 +63,11 @@ setup(
     ],
 
     dependency_links=[
-        'https://github.com/valeriansaliou/django-robots/tarball/1.6.2alt#egg=django-robots-1.6.2alt',
-        'https://github.com/valeriansaliou/django-humans/tarball/0.3alt#egg=django-humans-0.3alt',
+        'git://github.com/valeriansaliou/django-robots@1.6.2alt#egg=django-robots-1.6.2alt',
+        'git://github.com/valeriansaliou/django-humans@0.3alt#egg=django-humans-0.3alt',
 
-        'https://github.com/waaave/waaave-gravatar/tarball/0.5.1#egg=waaave-gravatar-0.5.1',
-        'https://github.com/waaave/waaave-bbcode/tarball/0.5.10#egg=waaave-bbcode-0.5.10',
-        'https://github.com/waaave/waaave-hitcount/tarball/0.6.4#egg=waaave-hitcount-0.6.4',
+        'git://github.com/waaave/waaave-gravatar@0.5.1#egg=waaave-gravatar-0.5.1',
+        'git://github.com/waaave/waaave-bbcode@0.5.10#egg=waaave-bbcode-0.5.10',
+        'git://github.com/waaave/waaave-hitcount.git@0.6.4#egg=waaave-hitcount-0.6.4',
     ],
 )
