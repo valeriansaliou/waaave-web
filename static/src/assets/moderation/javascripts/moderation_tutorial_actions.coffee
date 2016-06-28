@@ -1,1 +1,0 @@
-../../dashboard/javascripts/dashboard_tutorial_actions.coffee

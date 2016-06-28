@@ -1,9 +1,0 @@
-extends account/__account_emblemize
-
-- load staticfiles
-
-block stylesheets
-  | {{ block.super }}
-  link(rel='stylesheet' href='{% static "assets/account/stylesheets/account_recover.css" %}', type='text/css')
-
-block extra_head

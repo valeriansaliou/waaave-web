@@ -1,5 +1,0 @@
-# Waaave Medias
-# Scraping Rules
-
-User-agent: *
-Allow: /
