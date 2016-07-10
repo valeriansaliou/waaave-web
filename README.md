@@ -7,4 +7,10 @@ Waaave - A Sharing Network For Developers
 
 This repository contains all the code that **used to** power waaave.com and some of its subdomains.
 
+## Co-Founding Team
+
+ * **[Julien Le Coupanec](https://github.com/LeCoupa)** - Designer & Front-end developer (mostly: Photoshop, Jade/SASS)
+ * **[Valerian Saliou](https://github.com/LeCoupa)** - Back-end developer & Systems (mostly: Django)
+ * **Anthony Peron** - Marketing
+
 **Important: read LICENSE.md before proceeding any change to the code.**
