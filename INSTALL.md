@@ -31,7 +31,7 @@ This tutorial only covers MacOS systems with MAMP app. If your base system is di
 
 In a terminal, go to your Web directory and execute the following command:
 
-> git clone -b master git@github.com:waaave/waaave-web.git
+> git clone -b master git@github.com:valeriansaliou/waaave-web.git
 
 Check you are currently using the master branch using:
 

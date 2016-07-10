@@ -19,7 +19,7 @@ setup(
     name='waaave-web',
     version='1.0.0',
     description='Waaave app',
-    url='https://github.com/waaave/waaave-web',
+    url='https://github.com/valeriansaliou/waaave-web',
 
     author=u'Valérian Saliou',
     author_email='valerian@valeriansaliou.name',
@@ -66,8 +66,8 @@ setup(
         'git://github.com/valeriansaliou/django-robots@1.6.2alt#egg=django-robots-1.6.2alt',
         'git://github.com/valeriansaliou/django-humans@0.3alt#egg=django-humans-0.3alt',
 
-        'git://github.com/waaave/waaave-gravatar@0.5.1#egg=waaave-gravatar-0.5.1',
-        'git://github.com/waaave/waaave-bbcode@0.5.10#egg=waaave-bbcode-0.5.10',
-        'git://github.com/waaave/waaave-hitcount.git@0.6.4#egg=waaave-hitcount-0.6.4',
+        'git://github.com/valeriansaliou/waaave-gravatar@0.5.1#egg=waaave-gravatar-0.5.1',
+        'git://github.com/valeriansaliou/waaave-bbcode@0.5.10#egg=waaave-bbcode-0.5.10',
+        'git://github.com/valeriansaliou/waaave-hitcount.git@0.6.4#egg=waaave-hitcount-0.6.4',
     ],
 )
